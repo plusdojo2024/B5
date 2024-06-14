@@ -1,0 +1,38 @@
+<!docktype html>
+<html>
+
+<h1>らく雀</h1>
+
+<form id="login" method="get" action="result.html">
+  <label>ID</label>
+  <input type="id" name="id"><br>
+  <label>パスワード</label>
+  <input type="password" name="password"><br>
+  <input class="new" type="submit" name="submit" value="ログイン"><br>
+  <span id="error_message"></span>
+</form>
+
+<a href="signup.html">新規登録</a>
+
+</html>
+
+<script>
+'use strict';
+
+let formObj = document.getElementById('login_form');
+let errorMessageObj = document.getElementById('error_message');
+
+/* [ログイン]ボタンをクリックしたときの処理 */
+formObj.onsubmit = function() {
+  if (!formObj.id.value || !formObj.pw.value) {
+    errorMessageObj.textContent = '※IDとパスワードを入力してください';
+    return false;
+  }
+  errorMessageObj.textContent = null;
+};
+
+formObj.onreset = function() {
+  errorMessageObj.textContent = null;
+};
+
+</script>
