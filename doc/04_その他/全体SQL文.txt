@@ -1,0 +1,873 @@
+//ユーザーテーブル//
+CREATE TABLE users (
+  id INT AUTO_INCREMENT,
+  user_id VARCHAR(100) NOT NULL,
+  password VARCHAR(32) NOT NULL,
+  created_at DATETIME,
+  updated_at DATETIME, 
+PRIMARY KEY (ID));
+
+//対戦履歴//
+CREATE TABLE historys (
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  match_day DATE,
+  rank INT,
+  point INT,
+  people INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//対戦相手//
+CREATE TABLE opponents (
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  history_id INT,
+  name VARCHAR(20),
+  rank INT,
+  point INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//履歴詳細//
+CREATE TABLE history_details (
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  histoey_id INT,
+  wind INT,
+  game INT,
+  number INT,
+  seat_wind INT,
+  point INT,
+  han INT,
+  hu INT,
+  result INT,
+  title INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//手牌//
+CREATE TABLE hands (
+  id INT AUTO_INCREMENT,
+  history_id INT,
+  tile INT,
+  game_num INT,
+  dispose_num INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//ドラ表示牌//
+CREATE TABLE doras (
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  history_id INT,
+  reverse INT,
+  tile INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//手役//
+CREATE TABLE teyakus (
+  id INT AUTO_INCREMENT,
+  user_id INT,
+  history_id INT,
+  teyaku INT,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//フレンドデータ//
+CREATE TABLE friends (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  friend_name VARCHAR(100) NOT NULL,
+  word VARCHAR(100),
+  like_yaku VARCHAR(100),
+  record VARCHAR(30),
+  count_yaku VARCHAR(1000),
+  image INT,
+  last_login DATETIME,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//マイページ//
+CREATE TABLE mypages (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  name VARCHAR(100),
+  word VARCHAR(100),
+  like_yaku VARCHAR(30),
+  record VARCHAR(30),
+  count_yaku VARCHAR(1000),
+  image INT,
+  last_login DATETIME,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//牌一覧//
+CREATE TABLE tiles (
+  id INT AUTO_INCREMENT,
+  tile_name VARCHAR(20) NOT NULL,
+  tile_kind INT NOT NULL,
+  tile_number INT NOT NULL,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+//役一覧//
+CREATE TABLE yakus (
+  id INT AUTO_INCREMENT,
+  yaku_mame VARCHAR(20) NOT NULL,
+  han INT NOT NULL,
+  created_at DATETIME,
+  updated_at DATETIME,
+PRIMARY KEY (id));
+
+
+//牌一覧//
+//萬子//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '一萬',
+  '0',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '二萬',
+  '0',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '三萬',
+  '0',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '四萬',
+  '0',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '五萬',
+  '0',
+  '4',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '六萬',
+  '0',
+  '5',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '七萬',
+  '0',
+  '6',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '八萬',
+  '0',
+  '7',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '九萬',
+  '0',
+  '8',
+  NULL,
+  NULL
+);
+
+
+//筒子//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '一筒',
+  '1',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '二筒',
+  '1',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '三筒',
+  '1',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '四筒',
+  '1',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '五筒',
+  '1',
+  '4',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '六筒',
+  '1',
+  '5',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '七筒',
+  '1',
+  '6',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '八筒',
+  '1',
+  '7',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '九筒',
+  '1',
+  '8',
+  NULL,
+  NULL
+);
+
+
+//索子//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '一索',
+  '2',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '二筒',
+  '2',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '三筒',
+  '2',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '四筒',
+  '2',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '五筒',
+  '2',
+  '4',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '六筒',
+  '2',
+  '5',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '七筒',
+  '2',
+  '6',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '八筒',
+  '2',
+  '7',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '九筒',
+  '2',
+  '8',
+  NULL,
+  NULL
+);
+
+
+//東南西北//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '東',
+  '3',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '南',
+  '3',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '西',
+  '3',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '北',
+  '3',
+  '3',
+  NULL,
+  NULL
+);
+
+
+//白發中//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '白',
+  '4',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '發',
+  '4',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '中',
+  '4',
+  '2',
+  NULL,
+  NULL
+);
+
+
+//赤ドラ//
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '赤五萬',
+  '5',
+  '0',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '赤五筒',
+  '5',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO tiles VALUES (
+  NULL,
+  '赤五索',
+  '5',
+  '2',
+  NULL,
+  NULL
+);
+
+
+//役一覧//
+//一翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '立直',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一発',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '面前清模和',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '平和',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  'タンヤオ',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一盃口',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '白',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '發',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '中',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '場風牌',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '自風牌',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '嶺上開花',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '槍積',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '海底撈月',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '河底撈月',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '河底撈月',
+  '1',
+  NULL,
+  NULL
+);
+
+
+//二翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  'ダブル立直',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '金帯',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '混老頭',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三色同順',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一気通貫',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '対々和',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三色同刻',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三暗刻',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三槓子',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '七対子',
+  '2',
+  NULL,
+  NULL
+);
+
+
+//三翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '純金帯幺',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '混一色',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '二盃口',
+  '3',
+  NULL,
+  NULL
+);
+
+
+//四翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '小三元',
+  '4',
+  NULL,
+  NULL
+);
+
+
+//六翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '清一色',
+  '6',
+  NULL,
+  NULL
+);
+
+
+//役満//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '天和',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '地和',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '大三元',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '小四喜',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '清老頭',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四槓子',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '字一色',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '緑一色',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '国士無双',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '九連宝燈',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四暗刻',
+  '13',
+  NULL,
+  NULL
+);
+
+
+//ダブル役満//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '大四喜',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '国士無双十三面待ち',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '九連宝燈九面待ち',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四暗刻単騎',
+  '14',
+  NULL,
+  NULL
+);
