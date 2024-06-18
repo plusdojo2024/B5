@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 
 public class Hands implements Serializable {
+
 	private int id;/*ID*/
 	private int userId;/*ユーザーID*/
 	private int historyId;/*履歴番号*/
@@ -12,6 +13,16 @@ public class Hands implements Serializable {
 
 	public Hands(){
 
+	}
+
+	public Hands(int id, int userId, int historyId, int tile, int gameNum, int disposeNum) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.historyId = historyId;
+		this.tile = tile;
+		this.gameNum = gameNum;
+		this.disposeNum = disposeNum;
 	}
 
 	public int getId() {
