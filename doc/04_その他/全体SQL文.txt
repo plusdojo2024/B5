@@ -11,7 +11,7 @@ PRIMARY KEY (ID));
 CREATE TABLE historys (
   id INT AUTO_INCREMENT,
   user_id INT,
-  match_day TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  match_day DATE DEFAULT CURRENT_TIMESTAMP,
   rank INT,
   point INT,
   people INT,
