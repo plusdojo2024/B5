@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/B5/css/common.css">
+<link rel="stylesheet" href="/B5/css/result2.css">
 <title>終了画面</title>
 </head>
 <body>
@@ -17,7 +19,8 @@
 <form method="post" action="/B5/GamesetServlet">
 <input type="submit" name="" value="試合終了">
 </form>
-<form method="post" action="/B5/Servlet">
+<form method="post" action="/B5/TotalServlet">
 <input type="submit" name="login" value="次へ">
+</form>
 </body>
 </html>

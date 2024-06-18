@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/B5/css/common.css">
+<link rel="stylesheet" href="/B5/css/result.css">
 <title>リザルト画面</title>
 </head>
 <body>

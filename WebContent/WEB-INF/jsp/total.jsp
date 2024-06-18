@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/B5/css/total.css">
 <title>合計点表示</title>
 </head>
 <body>
