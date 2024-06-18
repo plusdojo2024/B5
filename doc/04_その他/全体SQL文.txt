@@ -3,20 +3,20 @@ CREATE TABLE users (
   id INT AUTO_INCREMENT,
   user_id VARCHAR(100) NOT NULL,
   password VARCHAR(32) NOT NULL,
-  created_at DATETIME,
-  updated_at DATETIME, 
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
 PRIMARY KEY (ID));
 
 //対戦履歴//
 CREATE TABLE historys (
   id INT AUTO_INCREMENT,
   user_id INT,
-  match_day DATE,
+  match_day TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   rank INT,
   point INT,
   people INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //対戦相手//
@@ -27,8 +27,8 @@ CREATE TABLE opponents (
   name VARCHAR(20),
   rank INT,
   point INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //履歴詳細//
@@ -45,8 +45,8 @@ CREATE TABLE history_details (
   hu INT,
   result INT,
   title INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //手牌//
@@ -56,8 +56,8 @@ CREATE TABLE hands (
   tile INT,
   game_num INT,
   dispose_num INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //ドラ表示牌//
@@ -67,8 +67,8 @@ CREATE TABLE doras (
   history_id INT,
   reverse INT,
   tile INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //手役//
@@ -77,8 +77,8 @@ CREATE TABLE teyakus (
   user_id INT,
   history_id INT,
   teyaku INT,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //フレンドデータ//
@@ -91,25 +91,30 @@ CREATE TABLE friends (
   record VARCHAR(30),
   count_yaku VARCHAR(1000),
   image INT,
-  last_login DATETIME,
-  created_at DATETIME,
-  updated_at DATETIME,
+  last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
+
 
 //マイページ//
 CREATE TABLE mypages (
   id INT AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  user_id VARCHAR NOT NULL,
   name VARCHAR(100),
   word VARCHAR(100),
   like_yaku VARCHAR(30),
   record VARCHAR(30),
   count_yaku VARCHAR(1000),
   image INT,
-  last_login DATETIME,
-  created_at DATETIME,
-  updated_at DATETIME,
+  last_login TIMESTAMP,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
+
+//user_idのユニーク化//
+CREATE UNIQUE INDEX user_idINDEX
+  ON MYPAGES(USER_ID);
 
 //牌一覧//
 CREATE TABLE tiles (
@@ -117,8 +122,8 @@ CREATE TABLE tiles (
   tile_name VARCHAR(20) NOT NULL,
   tile_kind INT NOT NULL,
   tile_number INT NOT NULL,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
 
 //役一覧//
@@ -126,9 +131,17 @@ CREATE TABLE yakus (
   id INT AUTO_INCREMENT,
   yaku_mame VARCHAR(20) NOT NULL,
   han INT NOT NULL,
-  created_at DATETIME,
-  updated_at DATETIME,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 PRIMARY KEY (id));
+
+
+
+
+
+
+
+
 
 
 //牌一覧//
