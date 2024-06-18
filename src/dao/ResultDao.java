@@ -54,3 +54,5 @@ public class ResultDao {
 
 		// 結果を返す
 		return finalTiles;
+	}
+}
