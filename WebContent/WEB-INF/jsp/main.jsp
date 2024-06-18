@@ -147,19 +147,19 @@
 	ドラ表示牌
 	<button type = "button" onclick = "doraClick()">ドラを追加する</button><br>
 		<button type="button" style="height: 50px;" id = "dora0">
-	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "dora">
+	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "doraimg0">
 		</button>
 		<button type="button" style="height: 50px;" id = "dora1">
-	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "dora">
+	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "doraimg1">
 		</button>
 		<button type="button" style="height: 50px;" id = "dora2">
-	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "dora">
+	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "doraimg2">
 		</button>
 		<button type="button" style="height: 50px;" id = "dora3">
-	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "dora">
+	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "doraimg3">
 		</button>
 		<button type="button" style="height: 50px;" id = "dora4">
-	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "dora">
+	  	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "doraimg4">
 		</button>
 
 </div>
@@ -174,50 +174,50 @@
 	<button type = "button">局終了</button>
 </div>
 <div class="tehai">
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai0" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai0img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai1" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai1img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai2" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai2img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai3" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai3img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai4" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai4img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai5" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai5img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai6" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai6img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai7" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai7img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai8" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai8img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai9" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai9img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai10" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai10img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai11" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai11img">
 	</button>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tehai12" onclick = "tehaiClick(this)">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;" id = "tehai12img">
 	</button>
 </div>
 <div class="tumotile">
 	ツモ牌<br>
-	<button type="button" style="height: 50px;">
-	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;">
+	<button type="button" style="height: 50px;" id = "tumotile">
+	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;"id="tumotileimg">
 	</button>
 </div>
 </body>
