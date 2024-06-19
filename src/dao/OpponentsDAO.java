@@ -91,7 +91,7 @@ public class OpponentsDAO {
 				pStmt.setInt(3, O.getHistoryId());
 				pStmt.setString(4, O.getName());
 				pStmt.setInt(5, O.getRank());
-
+				pStmt.setInt(6, O.getpoint());
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
 					result = true;
