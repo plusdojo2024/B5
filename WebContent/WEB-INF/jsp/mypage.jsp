@@ -13,7 +13,7 @@
 
 <div class="button">
   <input type="file" name="logo" id="form" accept=".jpg, .jpeg, .png, .gif"  onchange="previewFile(this);">
-  <button type="button" id="delete">削除</button>
+   <input class="reset" type="reset" name="reset" value="削除" >
 </div>
 
 <form method="post">
@@ -91,6 +91,9 @@
     });
     fileData.readAsDataURL(hoge.files[0]);
   }
+  formObj.onreset = function() {
+	  errorMessageObj.fileContent = null;
+	};
   </script>
 
 </body>
