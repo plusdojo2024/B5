@@ -1,0 +1,380 @@
+//役一覧//
+//一翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '立直',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一発',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '面前清模和',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '平和',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  'タンヤオ',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一盃口',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '白',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '發',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '中',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '場風牌',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '自風牌',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '嶺上開花',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '槍積',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '海底撈月',
+  '1',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '河底撈月',
+  '1',
+  NULL,
+  NULL
+);
+
+
+//二翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  'ダブル立直',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '金帯',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '混老頭',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三色同順',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '一気通貫',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '対々和',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三色同刻',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三暗刻',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '三槓子',
+  '2',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '七対子',
+  '2',
+  NULL,
+  NULL
+);
+
+
+//三翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '純金帯幺',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '混一色',
+  '3',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '二盃口',
+  '3',
+  NULL,
+  NULL
+);
+
+
+//四翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '小三元',
+  '4',
+  NULL,
+  NULL
+);
+
+
+//六翻//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '清一色',
+  '6',
+  NULL,
+  NULL
+);
+
+
+//役満//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '天和',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '地和',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '大三元',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '小四喜',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '清老頭',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四槓子',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '字一色',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '緑一色',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '国士無双',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '九連宝燈',
+  '13',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四暗刻',
+  '13',
+  NULL,
+  NULL
+);
+
+
+//ダブル役満//
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '大四喜',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '国士無双十三面待ち',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '九連宝燈九面待ち',
+  '14',
+  NULL,
+  NULL
+);
+
+INSERT INTO yakus VALUES (
+  NULL,
+  '四暗刻単騎',
+  '14',
+  NULL,
+  NULL
+);
