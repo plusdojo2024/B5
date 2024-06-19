@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +11,15 @@
 </head>
 <body>
 <!-- 項目を表示 -->
-<h1>手牌</h1>
+<c:if test="${empty hand}">
+	<p>一致するデータはありません。</p>
+</c:if>
+<c:forEach var="e" items="${hand}">
+<img src ="/B5/img/ma-jan_${e}.png">
+</c:forEach>
 <h2>ツモorロンを表示</h2>
-<h3>ドラ</h3>
-<h4>裏ドラ</h4>
+<h3>${dora}</h3>
+<h4>${tiles}</h4>
 <p>役：表示</p>
 <p>役の飜</p>
 <h5></h5>

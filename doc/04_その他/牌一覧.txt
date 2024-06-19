@@ -1,5 +1,5 @@
-//”vκ——//
-//δέq//
+//οΏ½vοΏ½κ——//
+//οΏ½έq//
 
 INSERT INTO tiles VALUES (
   NULL,
@@ -83,7 +83,7 @@ INSERT INTO tiles VALUES (
 );
 
 
-//“›q//
+//οΏ½οΏ½οΏ½q//
 
 INSERT INTO tiles VALUES (
   NULL,
@@ -167,7 +167,7 @@ INSERT INTO tiles VALUES (
 );
 
 
-//υq//
+//οΏ½οΏ½οΏ½q//
 
 INSERT INTO tiles VALUES (
   NULL,
@@ -251,7 +251,7 @@ INSERT INTO tiles VALUES (
 );
 
 
-//““μΌ–k//
+//οΏ½οΏ½οΏ½μΌοΏ½k//
 
 INSERT INTO tiles VALUES (
   NULL,
@@ -290,7 +290,7 @@ INSERT INTO tiles VALUES (
 );
 
 
-//”’αΆ’†//
+//οΏ½οΏ½αΆ’οΏ½//
 
 INSERT INTO tiles VALUES (
   NULL,
@@ -320,7 +320,7 @@ INSERT INTO tiles VALUES (
 );
 
 
-//Τƒhƒ‰//
+//οΏ½ΤƒhοΏ½οΏ½//
 
 INSERT INTO tiles VALUES (
   NULL,

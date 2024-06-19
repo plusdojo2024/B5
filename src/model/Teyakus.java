@@ -3,18 +3,18 @@ import java.io.Serializable;
 
 	public class Teyakus implements Serializable {
 		private int id; //ID
-		private int user_id; //ユーザーID
-		private int history_id; //履歴番号
+		private int userId; //ユーザーID
+		private int historyId; //履歴番号
 		private int teyaku; //手役
 
 	public Teyakus(){
 	}
 
-	public Teyakus(int id, int user_id, int history_id, int teyaku) {
+	public Teyakus(int id, int userId, int historyId, int teyaku) {
 		super();
 		this.id = id;
-		this.user_id = user_id;
-		this.history_id = history_id;
+		this.userId = userId;
+		this.historyId = historyId;
 		this.teyaku = teyaku;
 	}
 
@@ -26,20 +26,20 @@ import java.io.Serializable;
 	this.id = id;
 	}
 
-	public int getUser_id() {
-	return user_id;
+	public int getUserId() {
+	return userId;
 	}
 
-	public void setUser_id(int user_id) {
-	this.user_id = user_id;
+	public void setUser_id(int userId) {
+	this.userId = userId;
 	}
 
-	public int getHistory_id() {
-	return history_id;
+	public int getHistoryId() {
+	return historyId;
 	}
 
-	public void setHistory_id(int history_id) {
-	this.history_id = history_id;
+	public void setHistoryId(int historyId) {
+	this.historyId = historyId;
 	}
 
 	public int getTeyaku() {

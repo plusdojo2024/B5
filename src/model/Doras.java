@@ -3,9 +3,9 @@ import java.io.Serializable;
 
 public class Doras implements Serializable{
 	private int id; //ID
-	private int user_id; //ユーザーID
-	private int history_id; //履歴番号
-	private int revese; //裏表
+	private int userId; //ユーザーID
+	private int historyId; //履歴番号
+	private int reverse; //裏表
 	private int tile; //牌
 	//private timestamp created_at;
 	//private timestamp updated_at;
@@ -14,11 +14,12 @@ public class Doras implements Serializable{
 
 	}
 
-	public Doras(int id,int user_id,int history_id,int revese,int tile) {
+	public Doras(int id,int userId,int historyId,int reverse,int tile) {
+		super();
 		this.id =id;
-		this.user_id =user_id;
-		this.history_id =history_id;
-		this.revese =revese;
+		this.userId =userId;
+		this.historyId =historyId;
+		this.reverse =reverse;
 		this.tile =tile;
 	}
 
@@ -30,28 +31,28 @@ public class Doras implements Serializable{
 		this.id = id;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUser_id(int userId) {
+		this.userId = userId;
 	}
 
-	public int getHistory_id() {
-		return history_id;
+	public int getHistoryId() {
+		return historyId;
 	}
 
-	public void setHistory_id(int history_id) {
-		this.history_id = history_id;
+	public void setHistoryId(int historyId) {
+		this.historyId = historyId;
 	}
 
-	public int getRevese() {
-		return revese;
+	public int getReverse() {
+		return reverse;
 	}
 
-	public void setRevese(int revese) {
-		this.revese = revese;
+	public void setReverse(int reverse) {
+		this.reverse = reverse;
 	}
 
 	public int getTile() {
