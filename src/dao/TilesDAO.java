@@ -12,7 +12,7 @@ import model.Tiles;
 
 public class TilesDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<Tiles> select(Tiles aoi) {
+	public List<Tiles> select(int id) {
 		Connection conn = null;
 		List<Tiles> list = new ArrayList<Tiles>();
 
@@ -24,10 +24,10 @@ public class TilesDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/B5", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM Tiles WHERE id = ? AND tile_name = ? AND tile_number = ? AND  ? ORDER BY id DESC";
+			String sql = "SELECT * FROM Tiles WHERE id = ? ORDER BY id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
-			pStmt.setInt(1,aoi.getId());
+			pStmt.setInt(1,id);
 
 
 			// SQL文を実行し、結果表を取得する
