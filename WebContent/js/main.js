@@ -70,15 +70,17 @@ function doraClick(){
 
 //手牌を選択すると動くメソッド
 function tehaiClick(num){
-	if(regist_flag === true){
-		let tehai_name = num.id;
-		hands.splice(exchangeHandsName(tehai_name),1);
-		sort_hands();
-		tehai_num--;
+	if(regist_flag === true){							//登録中か否か
+		let tehai_name = num.id;						//選択されている手牌のIDを取得
+		hands.splice(exchangeHandsName(tehai_name),1);	//手牌から削除
+		sort_hands();									//手牌からソート
+		tehai_num--;									//手牌の登録数を減らす
 	}
 	if(tumo_flag===true){//ツモ牌が登録されていれば手牌に登録
-		let tehai_name = num.id;
-		hands.splice(exchangeHandsName(tehai_name),1,exchangeTileName(tumo_name));
+		let tehai_name = num.id;													//選択されている手牌のIDを取得
+		hands.splice(exchangeHandsName(tehai_name),1,exchangeTileName(tumo_name));  //選択された牌を削除して、ツモ牌に登録されている牌を追加する。
+		//console.log("ツモ牌"+exchangeTileName(tumo_name));
+		//console.log("捨て牌"+exchangeHandsName(tehai_name));
 		sort_hands();
 
 		//ツモ牌を選択していない状態に
@@ -93,7 +95,9 @@ function tehaiClick(num){
 		parent.removeChild(document.getElementById("tumotileimg"));		//もともと入っていたものを削除
       	parent.appendChild(input_data);									//選択した牌を挿入
 
+		//console.log("変更前"+hands[0]+" "+hands[1]+" "+hands[2]+" "+hands[3]+" "+hands[4]+" "+hands[5]+" "+hands[6]+" "+hands[7]+" "+hands[8]+" "+hands[9]+" "+hands[10]+" "+hands[11]+" "+hands[12]);
 		hantei();
+		//console.log("変更後"+hands[0]+" "+hands[1]+" "+hands[2]+" "+hands[3]+" "+hands[4]+" "+hands[5]+" "+hands[6]+" "+hands[7]+" "+hands[8]+" "+hands[9]+" "+hands[10]+" "+hands[11]+" "+hands[12]);
 		tumo_flag = false;
 	}
 }
@@ -101,7 +105,7 @@ function tehaiClick(num){
 //整牌するメソッド
 function sort_hands(){
 	hands.sort(compareNumbers);
-	for(let i=0;i<13;i++){
+		for(let i=0;i<13;i++){
 		let input_data = document.createElement("img");			//挿入するHTMLタグを決める
 		if(hands.length>i){
 			input_data.src = "/B5/img/ma-jan_"+exchangeTileId(hands[i])+".png";			//属性と属性値を決める
@@ -124,23 +128,25 @@ function sort_hands(){
 function hantei(){
 	const tile_count = [...Array(34)].map(()=>0);//牌を数える用の配列
 	const wait_tile = [...Array(34)].map(()=>0);//待ち牌をカウントする配列
+	const zeros = [...Array(34)].map(()=>0);
+	const hands_tmp = hands.concat();
 
 	//赤ドラ分のずれを補正
 	for(let i = 0;i < 13;i++){
-		if(hands[i] > 4 && hands[i] <15){
-			hands.splice(i,1,hands[i]-1);
+		if(hands_tmp[i] > 4 && hands_tmp[i] <15){
+			hands_tmp.splice(i,1,hands_tmp[i]-1);
 		}
-		else if(hands[i] >14 && hands[i] <24){
-			hands.splice(i,1,hands[i]-2);
+		else if(hands_tmp[i] >14 && hands_tmp[i] <24){
+			hands_tmp.splice(i,1,hands_tmp[i]-2);
 		}
-		else if(hands[i] >23){
-			hands.splice(i,1,hands[i]-3);
+		else if(hands_tmp[i] >23){
+			hands_tmp.splice(i,1,hands_tmp[i]-3);
 		}
 
 	}
 
 	//種類ごとに牌をカウント
-	for(const tmp of hands){
+	for(const tmp of hands_tmp){
 		tile_count[tmp]++;
 	}
 	for(const tmp of tile_count){
@@ -149,7 +155,7 @@ function hantei(){
 
 	//ひとつづつ牌を加えて判定する
 	for(let i = 0;i<34;i++){
-		let tile_tmp = tile_count;					//手牌カウントをコピー
+		let tile_tmp = tile_count.concat();					//手牌カウントをコピー
 		const head_count = [...Array(34)].map(()=>0);	//頭になる牌をカウント
 		let head_num;									//頭の数を数える
 
@@ -168,30 +174,45 @@ function hantei(){
 			}
 		}
 
+		//国士無双のパターンを列挙
+		tile_kokusi0 = [2,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1];
+        tile_kokusi1 = [1,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1];
+        tile_kokusi2 = [1,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1];
+        tile_kokusi3 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1];
+        tile_kokusi4 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1];
+        tile_kokusi5 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1];
+        tile_kokusi6 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,2,1,1,1,1,1,1];
+        tile_kokusi7 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1];
+        tile_kokusi8 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,2,1,1,1,1];
+        tile_kokusi9 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,2,1,1,1];
+        tile_kokusi10 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,2,1,1];
+        tile_kokusi11 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,2,1];
+        tile_kokusi12 = [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2];
+
 		if(head_num===7){//トイツ7つでチートイツ成立
 		wait_tile[i]++;
 		break;
 		}
 		else if(//国士無双の判定
-		tile_tmp === [2,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,2,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,2,1,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,2,1,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,2,1,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,2,1,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,2,1,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,2,1,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,2,1] ||
-        tile_tmp === [1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2] ){
+		arraysAreEqual(tile_tmp,tile_kokusi0)||
+        arraysAreEqual(tile_tmp,tile_kokusi1)||
+        arraysAreEqual(tile_tmp,tile_kokusi2)||
+        arraysAreEqual(tile_tmp,tile_kokusi3)||
+        arraysAreEqual(tile_tmp,tile_kokusi4)||
+        arraysAreEqual(tile_tmp,tile_kokusi5)||
+        arraysAreEqual(tile_tmp,tile_kokusi6)||
+        arraysAreEqual(tile_tmp,tile_kokusi7)||
+        arraysAreEqual(tile_tmp,tile_kokusi8)||
+        arraysAreEqual(tile_tmp,tile_kokusi9)||
+        arraysAreEqual(tile_tmp,tile_kokusi10)||
+        arraysAreEqual(tile_tmp,tile_kokusi11)||
+        arraysAreEqual(tile_tmp,tile_kokusi12)){
         wait_tile[i]++;
         }
         else{
 	        for(let j = 0;j < 34;j++){//雀頭ごとに探索
 		        if(head_count[j]==1){
-			        let tile_tmp_head = tile_tmp;//雀頭ごとにコピー
+			        let tile_tmp_head = tile_tmp.concat();//雀頭ごとにコピー
 			        tile_tmp_head[j]-=2;
 
 			        let tile_tmp2_head = tile_tmp_head;
@@ -207,22 +228,21 @@ function hantei(){
 	        				}
 	        			}
 	        		}
-	        		if (tile_tmp2_head == [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]){
+	        		if (arraysAreEqual(tile_tmp2_head,zeros)){
 	        			wait_tile[i]++;
 	        		}
 	        		//刻子の探索
 	        		const kotsu = [];
 	        		for(let k = 0;k < 34; k++){
-	        			if(tile_tmp_head[k]>=3){
+	        			if(tile_tmp[k]>=3){
 	        				kotsu.push(k);
 	        			}
 	        		}
 	        		//刻子の組み合わせを列挙
 	        		for(let k =0;k<kotsu.length;k++){
 	        			kotsuArray = combination(kotsu,k+1);
-
-	        			tile_tmp2_head = tile_tmp_head;
-	        			kotsu_tmp = kotsuArray[k];
+	        			tile_tmp2_head = tile_tmp.concat();
+	        			kotsu_tmp = kotsuArray.concat();
 	        			for(let m = 0;m > kotsu_tmp.length;m++){
 	        				tile_tmp2_head[kotsu_tmp[m]] -= 3;
 	        			}
@@ -239,28 +259,28 @@ function hantei(){
 	        				}
 	        			}
 	        		}
-	        		if (tile_tmp2_head == [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]){
+	        		if (arraysAreEqual(tile_tmp2_head,zeros)){
 	        			wait_tile[i]++;
 	        		}
 	        	}
 	        }
         }
 	}
-	if(wait_tile === []){
+	if(arraysAreEqual(wait_tile,zeros)){
 		console.log("テンパイしていない");
 	}
 	else{
 		console.log("テンパイしている");
 		for(let i = 0;i < 34;i++){
 			if(wait_tile[i]>0){
-				console.log(wait_tile[i]);
+				//console.log(wait_tile[i]);
 			}
 		}
 	}
 	for(let i = 0;i < 34;i++){
 			console.log(wait_tile[i]);
 		}
-	console.log("finish");
+	//console.log("finish");
 }
 
 function combination(nums, k){
