@@ -150,7 +150,7 @@ PRIMARY KEY (id));
 
 INSERT INTO tiles VALUES (
   NULL,
-  '一萬',
+  '1man',
   '0',
   '0',
   NULL,
@@ -159,7 +159,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '二萬',
+  '2man',
   '0',
   '1',
   NULL,
@@ -168,7 +168,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '三萬',
+  '3man',
   '0',
   '2',
   NULL,
@@ -177,7 +177,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '四萬',
+  '4man',
   '0',
   '3',
   NULL,
@@ -186,7 +186,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '五萬',
+  '5man',
   '0',
   '4',
   NULL,
@@ -195,7 +195,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '六萬',
+  '6man',
   '0',
   '5',
   NULL,
@@ -204,7 +204,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '七萬',
+  '7man',
   '0',
   '6',
   NULL,
@@ -213,7 +213,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '八萬',
+  '8man',
   '0',
   '7',
   NULL,
@@ -222,7 +222,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '九萬',
+  '9man',
   '0',
   '8',
   NULL,
@@ -234,7 +234,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '一筒',
+  '1pin',
   '1',
   '0',
   NULL,
@@ -243,7 +243,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '二筒',
+  '2pin',
   '1',
   '1',
   NULL,
@@ -252,7 +252,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '三筒',
+  '3pin',
   '1',
   '2',
   NULL,
@@ -261,7 +261,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '四筒',
+  '4pin',
   '1',
   '3',
   NULL,
@@ -270,7 +270,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '五筒',
+  '5pin',
   '1',
   '4',
   NULL,
@@ -279,7 +279,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '六筒',
+  '6pin',
   '1',
   '5',
   NULL,
@@ -288,7 +288,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '七筒',
+  '7pin',
   '1',
   '6',
   NULL,
@@ -297,7 +297,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '八筒',
+  '8pin',
   '1',
   '7',
   NULL,
@@ -306,7 +306,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '九筒',
+  '9pin',
   '1',
   '8',
   NULL,
@@ -318,7 +318,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '一索',
+  '1sou',
   '2',
   '0',
   NULL,
@@ -327,7 +327,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '二筒',
+  '2sou',
   '2',
   '1',
   NULL,
@@ -336,7 +336,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '三筒',
+  '3sou',
   '2',
   '2',
   NULL,
@@ -345,7 +345,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '四筒',
+  '4sou',
   '2',
   '3',
   NULL,
@@ -354,7 +354,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '五筒',
+  '5sou',
   '2',
   '4',
   NULL,
@@ -363,7 +363,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '六筒',
+  '6sou',
   '2',
   '5',
   NULL,
@@ -372,7 +372,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '七筒',
+  '7sou',
   '2',
   '6',
   NULL,
@@ -381,7 +381,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '八筒',
+  '8sou',
   '2',
   '7',
   NULL,
@@ -390,7 +390,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '九筒',
+  '9sou',
   '2',
   '8',
   NULL,
@@ -402,7 +402,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '東',
+  'tonfon',
   '3',
   '0',
   NULL,
@@ -411,7 +411,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '南',
+  'nanfon',
   '3',
   '1',
   NULL,
@@ -420,7 +420,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '西',
+  'syafon',
   '3',
   '2',
   NULL,
@@ -429,7 +429,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '北',
+  'pefon',
   '3',
   '3',
   NULL,
@@ -441,7 +441,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '白',
+  'haku',
   '4',
   '0',
   NULL,
@@ -450,7 +450,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '發',
+  'hatu',
   '4',
   '1',
   NULL,
@@ -459,7 +459,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '中',
+  'tyun',
   '4',
   '2',
   NULL,
@@ -471,7 +471,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '赤五萬',
+  'akaman',
   '5',
   '0',
   NULL,
@@ -480,7 +480,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '赤五筒',
+  'akapin',
   '5',
   '1',
   NULL,
@@ -489,7 +489,7 @@ INSERT INTO tiles VALUES (
 
 INSERT INTO tiles VALUES (
   NULL,
-  '赤五索',
+  'akasou',
   '5',
   '2',
   NULL,
