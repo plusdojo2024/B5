@@ -33,14 +33,13 @@
       </div>
     </header>
     <main>
-    <h2 class="his">対戦履歴一覧</h2 size="20px">
+    <h2 class="his">対戦履歴一覧</h2>
     <h1>点数</h1>
 
 <div class="container">
-    <c:forEach var="e" items="${history}">
-      <form method="post" action="/B5/HistoryServlet">
+      <form method="get" action="/B5/HistoryServlet">
 
-      <p class="date">対戦日時<name="macth_day" value="${e.macth_day}" readonly="readonly"></p><br>
+      <p class="date">対戦日時<input type="text" name="macth_day" value="${e.macth_day}" readonly="readonly"></p><br>
       <table class="user">
       <tr>
       <th><h2 class="rank"><input type="text" name="rank" value="${e.rank}" readonly="readonly"></h2></th>
@@ -49,14 +48,15 @@
       </table>
       </form>
 <div class="ranking">
+      <form method="get" action="/B5/HistoryServlet" >
       <table style="margin-left:700px;">
       <tr>
-      <form method="post" action="/B5/HistoryServlet" >
       <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
       <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
       </tr>
       </form>
-      <form method="post" action="/B5/OpponentServlet">
+
+      <form method="get" action="/B5/OpponentServlet">
       <tr>
       <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
       <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
@@ -73,15 +73,10 @@
 </div>
       <input type="submit" name="submit" value="詳細">
       </form>
-    </c:forEach>
 </div>
     </main>
 
 
 </body>
-<fotter>
-</fotter>
-<style>
-</style>
 </html>
 
