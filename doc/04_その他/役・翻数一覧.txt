@@ -204,6 +204,14 @@ INSERT INTO yakus VALUES (
   NULL
 );
 
+INSERT INTO yakus VALUES (
+  NULL,
+  '小三元',
+  '2',
+  NULL,
+  NULL
+);
+
 
 //三翻//
 
@@ -227,17 +235,6 @@ INSERT INTO yakus VALUES (
   NULL,
   '二盃口',
   '3',
-  NULL,
-  NULL
-);
-
-
-//四翻//
-
-INSERT INTO yakus VALUES (
-  NULL,
-  '小三元',
-  '4',
   NULL,
   NULL
 );
