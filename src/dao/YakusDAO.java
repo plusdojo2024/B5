@@ -38,7 +38,7 @@ public class YakusDAO {
 			while (rs.next()) {
 				Yakus record = new Yakus(
 				rs.getInt("id"),
-				rs.getString("yaku_name"),
+				rs.getString("yakuName"),
 				rs.getInt("han")
 				);
 				list.add(record);
@@ -70,7 +70,7 @@ public class YakusDAO {
 	}
 
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean insert(Yakus mm) {
+	public boolean insert(Yakus num) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -88,9 +88,9 @@ public class YakusDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる {
-			pStmt.setInt(1, mm.getId());
-			pStmt.setString(2, mm.getYaku_name());
-			pStmt.setInt(3, mm.getHan());
+			pStmt.setInt(1, num.getId());
+			pStmt.setString(2, num.getYakuName());
+			pStmt.setInt(3, num.getHan());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

@@ -37,9 +37,9 @@ public class TilesDAO {
 			while (rs.next()) {
 				Tiles record = new Tiles(
 				rs.getInt("id"),
-				rs.getString("tile_name"),
-				rs.getInt("tile_kind"),
-				rs.getInt("tile_number")
+				rs.getString("tileName"),
+				rs.getInt("tileKind"),
+				rs.getInt("tileNumber")
 				);
 				list.add(record);
 			}
@@ -70,7 +70,7 @@ public class TilesDAO {
 	}
 
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean insert(Tiles aoi) {
+	public boolean insert(Tiles id) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -86,10 +86,10 @@ public class TilesDAO {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, aoi.getId());
-			pStmt.setString(2, aoi.getTile_name());
-			pStmt.setInt(3, aoi.getTile_kind());
-			pStmt.setInt(4, aoi.getTile_number());
+			pStmt.setInt(1, id.getId());
+			pStmt.setString(2, id.getTileName());
+			pStmt.setInt(3, id.getTileKind());
+			pStmt.setInt(4, id.getTileNumber());
 
 
 			// SQL文を実行する
