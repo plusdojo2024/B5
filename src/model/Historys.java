@@ -1,28 +1,26 @@
 package model;
+
 import java.io.Serializable;
 
-public class Historys  implements Serializable{
+public class Historys implements Serializable{
 
 
 	private int id;
 	private int userId;
-	private String match_day;
+	private String matchDay;
 	private int rank;
 	private int point;
 	private int people;
 
-
-	//引数がないコンストラクタ
 	public Historys() {
 
 	}
 
-	//引数があるコンストラクタ
-	public Historys(int id, int userId, String match_day, int rank, int point, int people) {
+	public Historys(int id, int userId, String matchDay, int rank, int point, int people) {
 		super();
 		this.id = id;
 		this.userId = userId;
-		this.match_day = match_day;
+		this.matchDay = matchDay;
 		this.rank = rank;
 		this.point = point;
 		this.people = people;
@@ -40,16 +38,16 @@ public class Historys  implements Serializable{
 		return userId;
 	}
 
-	public void setUserId(int userid) {
-		this.userId = userid;
+	public void setUserId(int user_id) {
+		this.userId = user_id;
 	}
 
-	public String getMatch_day() {
-		return match_day;
+	public String getMatchDay() {
+		return matchDay;
 	}
 
-	public void setMatch_day(String match_day) {
-		this.match_day = match_day;
+	public void setMatchDay(String matchDay) {
+		this.matchDay = matchDay;
 	}
 
 	public int getRank() {
@@ -75,6 +73,4 @@ public class Historys  implements Serializable{
 	public void setPeople(int people) {
 		this.people = people;
 	}
-
 }
-
