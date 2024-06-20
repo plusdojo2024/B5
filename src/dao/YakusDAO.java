@@ -11,7 +11,7 @@ import java.util.List;
 import model.Yakus;
 
 public class YakusDAO {
-	public List<Yakus> select(Yakus mm) {
+	public List<Yakus> select(int num) {
 		Connection conn = null;//おまじない
 		List<Yakus> list = new ArrayList<Yakus>();//入れ物
 
@@ -25,10 +25,10 @@ public class YakusDAO {
 			//ユーザーIDを取得する
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM hands WHERE id = ? AND yaku_name = ? ORDER BY id DESC";
+			String sql = "SELECT * FROM yakus WHERE id = ? ORDER BY id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);//おまじない
 			// SQL文を完成させる
-				pStmt.setInt(1,mm.getId());
+				pStmt.setInt(1,num);
 
 
 			// SQL文を実行し、結果表を取得する
