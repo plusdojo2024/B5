@@ -1,6 +1,6 @@
 package model;
 
-public class Mypage {
+public class Mypages {
 	private int id;
 	private int image;
 	private String name;
@@ -11,11 +11,11 @@ public class Mypage {
 	private String lastlogin;
 	private String createdat;
 	private String updatedat;
-	public Mypage() {
+	public Mypages() {
 
 	}
 
-	public Mypage(int id, int image, String name, String userid, String word, String likeyaku, String record,
+	public Mypages(int id, int image, String name, String userid, String word, String likeyaku, String record,
 		String lastlogin, String createdat, String updatedat	) {
 		super();
 		this.id =id;
