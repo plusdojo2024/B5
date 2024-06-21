@@ -140,7 +140,7 @@
 	  <img src="/B5/img/ma-jan_akasou.png" alt="akasou" style="height: 100%;">
 	</button>
 </div>
-<div class="waiting_tile">
+<div id="waiting_tiles">
 	待ち牌
 </div>
 <div class="doras">
@@ -216,7 +216,7 @@
 </div>
 <div class="tumotile">
 	ツモ牌<br>
-	<button type="button" style="height: 50px;" id = "tumotile">
+	<button type="button" style="height: 50px;" id = "tumotile" onclick = "tumoTileClick()">
 	  <img src="/B5/img/ma-jan_back.png" alt="back" style="height: 100%;"id="tumotileimg">
 	</button>
 </div>
