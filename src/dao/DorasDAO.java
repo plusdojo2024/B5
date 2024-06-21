@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Doras;
 
-	public class DorassDAO {
+	public class DorasDAO {
 		public List<Doras> select(Doras Dr) {
 			Connection conn = null;//おまじない
 			List<Doras> list = new ArrayList<Doras>();//入れ物

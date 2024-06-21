@@ -112,7 +112,7 @@ public class ResultServlet extends HttpServlet {
 
 
 		List<Integer> ee = new ArrayList<Integer>(); //テスト用で記載(本来はなし)
-		ee.add(0);
+		ee.add(1);
 		session.setAttribute("yakus", ee);//テスト用で記載(本来はなし)
 
 		//役が何かを取得

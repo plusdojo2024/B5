@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Teyakus;
 
-public class TeyakussDAO {
+public class TeyakusDAO {
 	public List<Teyakus> select(Teyakus Te) {
 		Connection conn = null;//おまじない
 		List<Teyakus> list = new ArrayList<Teyakus>();//入れ物
