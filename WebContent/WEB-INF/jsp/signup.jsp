@@ -11,9 +11,9 @@
 <body>
 <h1>らく雀</h1>
 
-<form id="signup_form" method="get" action="result.html">
+<form id="signup_form" method="post" action="/B5/SignupServlet">
   <label>ID：</label>
-  <input type="id" name="id"><br>
+  <input type="text" name="userid"><br>
   <label>パスワード：</label>
   <input type="password" name="password"><br>
   <input class="new" type="submit" name="submit" value="登録"><br>
@@ -30,7 +30,7 @@ let errorMessageObj = document.getElementById('error_message');
 
 
 formObj.onsubmit = function() {
-  if (!formObj.id.value || !formObj.pw.value) {
+  if (!formObj.userid.value || !formObj.password.value) {
     errorMessageObj.textContent = '※IDとパスワードを入力してください';
     return false;
   }
