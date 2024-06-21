@@ -16,6 +16,14 @@ public class Opponents implements Serializable {
 
 	}
 
+	/**
+	 * @param id
+	 * @param userId
+	 * @param historyId
+	 * @param name
+	 * @param rank
+	 * @param point
+	 */
 	public Opponents(int id, int userId, int historyId, String name, int rank, int point) {
 		super();
 		this.id = id;
@@ -25,6 +33,8 @@ public class Opponents implements Serializable {
 		this.rank = rank;
 		this.point = point;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -38,16 +48,16 @@ public class Opponents implements Serializable {
 		return userId;
 	}
 
-	public void setUserId(int user_id) {
-		this.userId = user_id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getHistoryId() {
 		return historyId;
 	}
 
-	public void setHistoryId(int history_id) {
-		this.historyId = history_id;
+	public void setHistoryId(int historyId) {
+		this.historyId = historyId;
 	}
 
 	public String getName() {
@@ -66,7 +76,7 @@ public class Opponents implements Serializable {
 		this.rank = rank;
 	}
 
-	public int getpoint() {
+	public int getPoint() {
 		return point;
 	}
 
