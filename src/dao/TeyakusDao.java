@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Teyakus;
 
-public class TeyakusDao {
+public class TeyakusDAO {
 	public List<Teyakus> select(Teyakus Te) {
 		Connection conn = null;//おまじない
 		List<Teyakus> list = new ArrayList<Teyakus>();//入れ物
@@ -36,8 +36,8 @@ public class TeyakusDao {
 			while (rs.next()) {
 				Teyakus record = new Teyakus(
 						rs.getInt("id"),
-						rs.getInt("userId"),
-						rs.getInt("historyId"),
+						rs.getInt("user_id"),
+						rs.getInt("history_id"),
 						rs.getInt("teyaku"));
 				list.add(record);
 			}
