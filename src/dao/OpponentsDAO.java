@@ -25,7 +25,7 @@ public class OpponentsDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/B5", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM opponents WHERE history_id = ? ORDER BY id DESC";
+				String sql = "SELECT * FROM opponents WHERE history_id = ? ORDER BY id ASC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
