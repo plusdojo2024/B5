@@ -37,9 +37,9 @@ public class TilesDAO {
 			while (rs.next()) {
 				Tiles record = new Tiles(
 				rs.getInt("id"),
-				rs.getString("tileName"),
-				rs.getInt("tileKind"),
-				rs.getInt("tileNumber")
+				rs.getString("tile_name"),
+				rs.getInt("tile_kind"),
+				rs.getInt("tile_number")
 				);
 				list.add(record);
 			}

@@ -38,7 +38,7 @@ public class YakusDAO {
 			while (rs.next()) {
 				Yakus record = new Yakus(
 				rs.getInt("id"),
-				rs.getString("yakuName"),
+				rs.getString("yaku_name"),
 				rs.getInt("han")
 				);
 				list.add(record);
