@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="model.Historys" %>
+<% Historys historys = (Historys) request.getAttribute("historys"); %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="UTF-8">
 <link rel="stylesheet" href="/B5/css/History.css">
+<link rel="stylesheet" type="text/css" href="/B5/css/common.css">
 </head>
 <body>
 
@@ -33,48 +38,56 @@
       </div>
     </header>
     <main>
-    <h2 class="his">対戦履歴一覧</h2>
-    <h1>点数</h1>
+    <h1 class="his">対戦履歴一覧</h1>
 
-<div class="container">
-      <form method="get" action="/B5/HistoryServlet">
+	<div class="container">
+	<c:forEach var="e" items="${hisList}">
+      	<p class="date">対戦日時 ${e.matchDay}</p><br>
+ 		<div class="user">
+  			<table>
+    		<tr>
+      			<td><h2 class="rank">${e.rank }位</h2></td>
+      			<td><h2 class="point">${e.point }点</h2></td>
+     		</tr>
+  			</table>
+		</div>
+		<div class="ranking">
+		<table style="margin-left:700px;">
+			<tr>
+			<th>順位${e.rank }位</th>
+			<th>名前${e.userId }</th>
+			</tr>
 
-      <p class="date">対戦日時<input type="text" name="macth_day" value="${e.macth_day}" readonly="readonly"></p><br>
-      <table class="user">
-      <tr>
-      <th><h2 class="rank"><input type="text" name="rank" value="${e.rank}" readonly="readonly"></h2></th>
-      <th><h2 class="point"><input type="text" name="point" value="${e.point}" readonly="readonly"></h2></th>
-      </tr>
-      </table>
-      </form>
-<div class="ranking">
-      <form method="get" action="/B5/HistoryServlet" >
-      <table style="margin-left:700px;">
-      <tr>
-      <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
-      <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
-      </tr>
-      </form>
+		<c:forEach var="o" items="${oppList}">
 
-      <form method="get" action="/B5/OpponentServlet">
-      <tr>
-      <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
-      <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
-      </tr>
-      <tr>
-      <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
-      <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
-      </tr>
-      <tr>
-      <th>順位<input type="text" name="rank" value="${e.rank}" readonly="readonly"></th>
-      <th>名前<input type="text" name="name" value="${e.name}" readonly="readonly"></th>
-      </tr>
-      </table>
-</div>
-      <input type="submit" name="submit" value="詳細">
-      </form>
-</div>
-    </main>
+			<tr>
+			<th>２${o.rank}位</th>
+			<th>名前${o.name}</th>
+			</tr>
+
+			<tr>
+			<th>３${o.rank}位</th>
+			<th>名前${o.name}</th>
+			</tr>
+
+			<tr>
+			<th>4${o.rank}位</th>
+			<th>名前${o.name}</th>
+			</tr>
+
+		</c:forEach>
+
+		</table>
+		</div>
+
+
+	</c:forEach>
+
+	<input type="submit" name="submit" value="詳細">
+
+	</div>
+
+</main>
 
 
 </body>
