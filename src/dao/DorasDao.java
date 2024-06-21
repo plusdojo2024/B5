@@ -10,7 +10,7 @@ import java.util.List;
 
 import model.Doras;
 
-	public class DorasDao {
+	public class DorasDAO {
 		public List<Doras> select(Doras Dr) {
 			Connection conn = null;//おまじない
 			List<Doras> list = new ArrayList<Doras>();//入れ物
@@ -38,8 +38,8 @@ import model.Doras;
 			while(rs.next()) {
 				Doras record = new Doras(
 				rs.getInt("id"),
-				rs.getInt("userId"),
-				rs.getInt("historyId"),
+				rs.getInt("user_id"),
+				rs.getInt("history_id"),
 				rs.getInt("reverse"),
 				rs.getInt("tile")
 				);

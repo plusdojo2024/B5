@@ -39,11 +39,11 @@ public class HandsDAO {
 			while (rs.next()) {
 				Hands record = new Hands(
 				rs.getInt("id"),
-				rs.getInt("userId"),
-				rs.getInt("historyId"),
+				rs.getInt("user_id"),
+				rs.getInt("history_id"),
 				rs.getInt("tile"),
-				rs.getInt("gameNum"),
-				rs.getInt("disposeNum")
+				rs.getInt("game_num"),
+				rs.getInt("dispose_num")
 				);
 				list.add(record);
 			}

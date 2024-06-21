@@ -43,12 +43,12 @@ public class HistoryDetailsDAO {
 			while (rs.next()) {
 				HistoryDetails record = new HistoryDetails(
 				rs.getInt("id"),
-				rs.getInt("userId"),
-				rs.getInt("historyId"),
+				rs.getInt("user_id"),
+				rs.getInt("history_id"),
 				rs.getInt("wind"),
 				rs.getInt("game"),
 				rs.getInt("numbar"),
-				rs.getInt("seatWind"),
+				rs.getInt("seat_wind"),
 				rs.getInt("point"),
 				rs.getInt("han"),
 				rs.getInt("hu"),
