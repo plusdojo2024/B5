@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>登録成功！</h1>
-<h2>ようこそ</h2>
+<h2>ようこそ"${userid}"さん</h2>
 <a href="/B5/HomeServlet"><button>ホーム</button></a>
 </body>
 </html>
