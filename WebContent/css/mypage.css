@@ -1,4 +1,5 @@
 body{
+	font-size:1.2rem;
 	background-color:#FFDBC9;
 	margin:30px;
 	padding:30px;
@@ -11,19 +12,23 @@ img{
   }
 
 h4{
-	margin-top:5px;
+	margin-top:10px;
+	margin-bottom:1px;
+	display:inline-block;
 }
 
 div.button{
 	margin:5px 0px;
+    display:inline-block;
 
 }
 
 input[type="text"]{
+	font-size:1.1rem;
     border:none;
 	border-bottom:solid 2px #66CC66;
 	background-color:#FFFFEE
 }
 p{
-	margin-block-end:0;
+	display:inline-block;
 }
