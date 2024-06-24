@@ -35,7 +35,7 @@ PRIMARY KEY (id));
 CREATE TABLE history_details (
   id INT AUTO_INCREMENT,
   user_id INT,
-  histoey_id INT,
+  history_id INT,
   wind INT,
   game INT,
   number INT,
