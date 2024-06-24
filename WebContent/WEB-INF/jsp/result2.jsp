@@ -9,11 +9,11 @@
 <title>終了画面</title>
 </head>
 <body>
-<form method="post" action="/B5/Result2Servlet">
-<!-- <input type ="submit" id =search name="ryukyoku" value ="りゅきょく">
-<input type ="submit" id >上がり //ラジオボタンで作成する -->
+<form method="post" action="/B5/src/Result2Servlet">
+<input type ="radio" id ="r" name="kekka" value ="流局">
+<input type ="radio" id ="a" name="kekka" value ="上がり">
 <label>自分の点数</label><br>
-<input type ="text" name ="point" >
+<input type ="text"  name ="point">
 <input type="submit" name="next" value="次へ">
 </form>
 </body>

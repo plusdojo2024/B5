@@ -1,1 +1,23 @@
 @charset "UTF-8";
+.tehai-kekka{
+	display:inline;
+}
+
+.doras{
+	display:inline;
+}
+
+.yakus-hans{
+	display:inline;
+}
+
+#nav ul{
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+
+}
+.grid{
+	display:grid;
+	grid-template-columns:0.1fr 0.2fr 0.1fr 0.2fr 0.1fr 0.2fr;
+	grid-template-rows:5px 5px 5px 5px 5px 5px;
+}
