@@ -13,9 +13,9 @@ import model.Opponents;
 public class OpponentsDAO {
 
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-		public List<Opponents> select(Opponents O) {
+		public List<Opponents> select(int historyId) {
 			Connection conn = null;
-			List<Opponents> cardList = new ArrayList<Opponents>();
+			List<Opponents> oppList = new ArrayList<Opponents>();
 
 			try {
 				// JDBCドライバを読み込む
@@ -25,8 +25,11 @@ public class OpponentsDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/B5", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM Opponents WHERE userId LIKE ? AND historyId LIKE ? AND name LIKE ? AND rank LIKE ?AND point LIKE? ORDER BY id";
+				String sql = "SELECT * FROM opponents WHERE history_id = ? ORDER BY id ASC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+
+				pStmt.setInt(1, historyId);
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
@@ -35,22 +38,22 @@ public class OpponentsDAO {
 				while (rs.next()) {
 					Opponents record = new Opponents(
 					rs.getInt("id"),
-					rs.getInt("userId"),
-					rs.getInt("historyId"),
+					rs.getInt("user_id"),
+					rs.getInt("history_id"),
 					rs.getString("name"),
 					rs.getInt("rank"),
 					rs.getInt("point")
 					);
-					cardList.add(record);
+					oppList.add(record);
 				}
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				cardList = null;
+				oppList = null;
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
-				cardList = null;
+				oppList = null;
 			}
 			finally {
 				// データベースを切断
@@ -60,16 +63,16 @@ public class OpponentsDAO {
 					}
 					catch (SQLException e) {
 						e.printStackTrace();
-						cardList = null;
+						oppList = null;
 					}
 				}
 			}
 
 			// 結果を返す
-			return cardList;
+			return oppList;
 		}
-
-		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
+}
+/*		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(Opponents O) {
 			Connection conn = null;
 			boolean result = false;
@@ -119,3 +122,4 @@ public class OpponentsDAO {
 			return result;
 		}
 }
+*/

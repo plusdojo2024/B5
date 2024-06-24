@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.HistorysDAO;
+import dao.OpponentsDAO;
+import model.Historys;
+import model.Opponents;
 /**
  * Servlet implementation class HistoryServlet
  */
@@ -28,13 +33,27 @@ public class HistoryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/history.jsp");
-		dispatcher.forward(request, response);
+	request.setCharacterEncoding("UTF-8");
+	//HttpSession session = request.getSession();
+	//int userId = (int) session.getAttribute("userId");
+
+
+	HistorysDAO HDao = new HistorysDAO();
+	int user_id = 0;
+	List<Historys> hisList = HDao.select(user_id);
+	request.setAttribute("hisList", hisList);
+
+
+	OpponentsDAO ODao = new OpponentsDAO();
+	int history_id = 1;
+	List<Opponents> oppList = ODao.select(history_id);
+	request.setAttribute("oppList", oppList);
+
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/history.jsp");
+	dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
