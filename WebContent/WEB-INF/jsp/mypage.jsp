@@ -13,18 +13,22 @@
 
 
   <form method="post" action="/B5/MypageServlet">
-	<img id="preview" accept="image/*"  src="/B5/img/profile.jpg" >
+      <div class="user">
+	<img id="preview" accept="image/*"  src="/B5/img/profile.jpg" ><br>
+
 	<div class="button">
 		<input type="file" name="image" id="form"
 		accept=".jpg, .jpeg, .png, .gif" onchange="previewFile(this);" >
-	</div>
+	</div><br>
 
-		<h4>USERID:</h4>
-		<p>${mypage.userid}</p>
+
+	<h4>USERID:</h4>
+	<p>${mypage.userid}</p><br>
+	</div>
 		<h4>ニックネーム:</h4>
-		<input type="text" class="name" name="name" value="${mypage.name}">
-		<h4>ひとこと</h4>
-		<input type="text" class="userid" name="word" value="${mypage.word}">
+		<input type="text" class="name" name="name" value="${mypage.name}"><br>
+		<h4>ひとこと:</h4>
+		<input type="text" class="userid" name="word" value="${mypage.word}"><br>
 		<%-- <textarea rows="5" cols="15">${mypage.word}</textarea> --%>
 		<h4>好きな役:</h4>
 		<select name="likeyaku">
@@ -69,19 +73,20 @@
 			<option value="daisusi">大四喜(ダイスーシー)</option>
 			<option value="junsei">純正九蓮宝燈(ジュンセイチューレンポートウ)</option>
 			<option value="sanmen">国士無双十三面待ち(コクシムソウジュウサンメンマチ)</option>
-		</select><br> <input type="submit" class="regist" value="更新">
+		</select><br> <input type="submit" class="regist" value="更新"><br>
 
 	    <input type="hidden" name ="image_data" value="${mypage.image}">
 		<input type="hidden" name="id" value="${mypage.id}">
 		<input type="hidden" id="photo" name="photo" value="">
+
+		<h4>戦績</h4><br>
+		<p>総対局数：${mypage.record}</p><br>
+		<p>勝利数：</p><br>
+		<p>勝率：</p><br>
+
 	</form>
 
-	<div>
-		<h4>戦績</h4>
-		<p>総対局数：${mypage.record}</p>
-		<p>勝利数：</p>
-		<p>勝率：</p>
-	</div>
+
 
 <a href="/B5/HomeServlet"><button class="home" type="button">ホーム</button></a>
   <script>
