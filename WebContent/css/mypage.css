@@ -1,34 +1,64 @@
-body{
+form{
 	font-size:1.2rem;
-	background-color:#FFDBC9;
+	background-color:#FFF5EE;
 	margin:30px;
 	padding:30px;
     border:solid 5px #FF6633;
-
+    height:600px;
 }
+
 
 img{
   height:150px;
+  border:solid 3px #FF6633;
+  border-radius:15px;
   }
 
-h4{
-	margin-top:10px;
-	margin-bottom:1px;
+label{
+	margin:10px;
 	display:inline-block;
+	width:130px;
+	text-align:right;
 }
 
 div.button{
-	margin:5px 0px;
+	margin: 0px;
     display:inline-block;
-
+	margin:20px;
 }
 
 input[type="text"]{
 	font-size:1.1rem;
     border:none;
 	border-bottom:solid 2px #66CC66;
-	background-color:#FFFFEE
+	background-color:#FFF5EE;
 }
 p{
 	display:inline-block;
+	margin:0px;
+}
+.regist{
+	padding:6px 25px;
+	background-color:#fff;
+	border:solid 1px #FF6633;
+	font-size:15px;
+}
+.regist:hover{
+	background-color:#FFDBC9;
+}
+select{
+	width:200px;
+	height:30px;
+}
+div{
+	float:left;
+}
+.user{
+	margin:0px;
+}
+h4{
+	margin:20px 0 0;
+}
+#form{
+	width:110px;
 }
