@@ -164,10 +164,10 @@
 
 </div>
 <div class = "buttons">
-	<button type = "button">1つ戻る</button>
-	<button type = "button">ツモ</button>
-	<button type = "button">ロン</button>
-	<button type = "button">リーチ</button>
+	<button type = "button" >1つ戻る</button>
+	<button type = "button" style = "display: none" id = "tsumo">ツモ</button>
+	<button type = "button" style = "display: none" id = "ron">ロン</button>
+	<button type = "button" style = "display: none" id = "reach">リーチ</button>
 	<button type = "button">カン</button>
 	<button type = "button">ポン</button>
 	<button type = "button">チー</button>
