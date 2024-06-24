@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.TilesDAO;
-import dao.YakusDAO;
 import model.Tiles;
-import model.Yakus;
 
 /**
  * Servlet implementation class ResultServlet
@@ -76,9 +74,9 @@ public class ResultServlet extends HttpServlet {
 		int result = (int) session.getAttribute("result");
 		String rs = new String();
 		if(result ==0) {
-			rs = "ツモ";
+			rs = "tr-t";
 		}else {
-			rs ="ロン";
+			rs ="tr-r";
 		}
 		request.setAttribute("result", rs);
 
@@ -111,21 +109,21 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("uraDoras", udr);
 
 
-		List<Integer> ee = new ArrayList<Integer>(); //テスト用で記載(本来はなし)
-		ee.add(1);
+		List<String> ee = new ArrayList<String>(); //テスト用で記載(本来はなし)
+		ee.add("白");
+		ee.add("リーチ");
 		session.setAttribute("yakus", ee);//テスト用で記載(本来はなし)
 
 		//役が何かを取得
-		List<Integer> yakus = (List<Integer>) session.getAttribute("yakus"); //スコープから受け取っているところ
-
-
-		YakusDAO yDAO = new YakusDAO();
-		List<Yakus> yk = new ArrayList<Yakus>();
-		for(int i = 0;i<yakus.size();i++) {
-			List<Yakus> ys = yDAO.select(yakus.get(i));
-			yk.add(ys.get(0));
-		}
-		request.setAttribute("yakus", yk);
+//		List<Integer> yakus = (List<Integer>) session.getAttribute("yakus"); //スコープから受け取っているところ
+//
+//		user_id = 0;
+//		his
+//
+//		YakusDAO yDAO = new YakusDAO();
+//		List<String> yk = new ArrayList<String>();
+//		yDAO.yaku_select(user_id, hisroty_id);
+//		request.setAttribute("yakus", yk);
 
 
 		int ff = 1; //テスト用で記載(本来はなし)
@@ -166,22 +164,22 @@ public class ResultServlet extends HttpServlet {
 				ti = "";
 				break;
 			case 1:
-				ti ="満貫";
+				ti ="mankan";
 				break;
 			case 2:
-				ti ="跳満";
+				ti ="choman";
 				break;
 			case 3:
-				ti ="倍満";
+				ti ="baiman";
 				break;
 			case 4:
-				ti ="3倍満";
+				ti ="sanbaiman";
 				break;
 			case 5:
-				ti ="役満";
+				ti ="yakuman";
 				break;
 			case 6:
-				ti ="2倍役満";
+				ti ="nibaiyakuman";
 				break;
 		}
 		request.setAttribute("title",ti);
