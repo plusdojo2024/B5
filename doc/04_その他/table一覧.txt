@@ -38,7 +38,7 @@ CREATE TABLE history_details (
   history_id INT,
   wind INT,
   game INT,
-  number INT,
+  numbar INT,
   seat_wind INT,
   point INT,
   han INT,
