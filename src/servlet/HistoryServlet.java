@@ -38,9 +38,10 @@ public class HistoryServlet extends HttpServlet {
 	//int userId = (int) session.getAttribute("userId");
 
 
+
 	HistorysDAO HDao = new HistorysDAO();
-	int user_id = 0;
-	List<Historys> hisList = HDao.select(user_id);
+
+	List<Historys> hisList = HDao.select();
 	request.setAttribute("hisList", hisList);
 
 
@@ -52,6 +53,7 @@ public class HistoryServlet extends HttpServlet {
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/history.jsp");
 	dispatcher.forward(request, response);
 	}
+
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
