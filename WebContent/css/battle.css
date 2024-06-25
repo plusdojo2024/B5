@@ -1,9 +1,10 @@
-.open {
-	cursor:pointer;
+html{
+	width:100%;
 }
-#pop-up {
+.popup{
 	display: none;
 }
+
 .overlay {
 	display: block;
 	position: fixed;
@@ -15,9 +16,7 @@
 	background: rgba(0, 0, 0, 0.6);
 
 }
-#pop-up:checked + .overlay {
-        display: none;
-	}
+
 .window {
 	position: fixed;
 	top: 50%;
@@ -31,9 +30,97 @@
 	align-items: center;
 	transform: translate(-50%, -50%);
 }
-.close {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	cursor:pointer;
+
+.tileButton{
+	max-height:19%;
+	max-width:10%;
+}
+
+.dorasTileButton{
+	width:19%;
+	max-height:100%;
+}
+
+.tehaiTileButton{
+	max-height:100%;
+	max-width:7%;
+}
+
+.tumohaiTileButton{
+	max-height:100%;
+}
+
+.tile{
+	max-height:100%;
+	max-width:100%;
+}
+
+.tiles{
+	background-color:#66CC66;
+	position: fixed;
+	width: 60%;
+	height:60%;
+	top:0;
+	left:0;
+	padding: 1%;
+}
+
+.doras{
+	background-color:#66CC66;
+	position: fixed;
+	width: 33%;
+	top:0;
+	right:0;
+	padding: 1%;
+}
+
+.tehai{
+	position: fixed;
+	width: 87%;
+	height:15%;
+	bottom:0;
+	left:0;
+	background-color:#66CC66;
+	padding: 1%;
+}
+
+.tumotile{
+	position: fixed;
+	bottom:0;
+	right:0;
+	background-color:#66CC66;
+	padding: 1%;
+}
+
+.buttons{
+	position: fixed;
+	bottom:60px;
+	left:0;
+}
+
+#waiting_tiles{
+	position: fixed;
+	bottom:80px;
+	right:0;
+}
+
+#doraText{
+	position: fixed;
+	top:100px;
+	right:0;
+}
+
+#registText{
+	display: none;
+	position: fixed;
+	top:100px;
+	right:0;
+}
+
+#pon{
+	display: none;
+	position: fixed;
+	top:100px;
+	right:0;
+	text-align:center;
 }
