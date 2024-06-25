@@ -4,13 +4,22 @@
 let dora_flag = true;	//ドラ選択モードの管理
 let dora_num = 0;		//何番目のドラが選ばれているか
 let regist_flag = true; //初期登録が終わっているかの管理
-let tehai_num = 0;		//初期登録がどこまで終わっているか
+let tehaiNum = 0;		//初期登録がどこまで終わっているか
 let tumo_flag = false;	//ツモ牌を選んでいるかの管理
-let tumo_name = null;   //ツモ牌が何か登録するところ
+let tumo_name = null;   //ツモ牌が何かを登録するところ
 const hands = [];       //現在の手牌のリスト
+let nakiFlag = false;   //鳴きが入るとtrueになる
+const nakiTiles = [];   //鳴き牌のリスト
+let ponFlag = false;    //ポンの選択状態でtrue;
+let ponTileNum = 0;		//ポンした牌のID
+let chiFlag = false;    //チーの選択状態でtrue;
+let chiTileNum = [];	//チーした牌のID
 const wait_tile = [];   //待ち牌のリスト
+const doras = [];       //ドラのリスト
 let wait_tile_num = 0;  //待ち牌が表示されている数
 let wind = 0;			//場風
+let game = 0;			//局数
+let number = 0;			//本場
 let seatWind = 0;		//自風
 let reachFlag = false;  //リーチフラグ
 let ippatuFlag = false; //一発フラグ
@@ -20,18 +29,42 @@ let tyankanFlag = false;//槍槓フラグ
 let haiteiFlag = false; //ハイテイフラグ
 let houteiFlag = false; //ホウテイフラグ
 let dReachFlag = false; //ダブルリーチフラグ
-let tenhouFlag = false; //天和フラグ
-let chihouFlag = false; //地和フラグ
+let tenhouFlag = true; //天和フラグ
+let chihouFlag = true; //地和フラグ
 
+//スタートのポップアップの決定ボタンを押すと動くメソッド
+function startClick(id){
+	let element = document.getElementById('start');
+	element.style.display = "none";
+	if(id.id =="start0"){
+		element = document.getElementById('numbers');
+		element = document.getElementById('wind');
+		seatWind = parseInt(element.value);
+	}
+	if(id.id =="start1"){
 
+	}
+}
 
 //牌を選択すると動くメソッド
 function tilesClick(tile){
 
 	let tile_name = tile.id;//選択した牌のID
 
+	if(ponFlag){
+		return;
+	}
+
+	if(nakiFlag){
+		return;
+	}
+
 	//ドラ表示牌変更部分
 	if(dora_flag === true){//ドラを選択する状態か
+		element = document.getElementById('doraText');
+		element.style.display=("none");
+
+		doras.push(exchangeTileName(tile_name));
 		let input_data = document.createElement("img");						//挿入するHTMLタグを決める
   		input_data.src = "/B5/img/ma-jan_"+tile_name+".png";				//属性と属性値を決める
 		input_data.alt = "tile_name";
@@ -43,6 +76,11 @@ function tilesClick(tile){
 		parent.removeChild(document.getElementById("doraimg"+dora_num));	//もともと入っていたものを削除
       	parent.appendChild(input_data);										//選択した牌を挿入
 
+		if(regist_flag === true){
+	      	let element = document.getElementById('registText');
+			element.style.display=("block");
+		}
+
 		dora_flag = false;	//ドラ選択モードを解除
 		dora_num++;			//次のドラが選ばれる
 	}//初期手牌登録部分
@@ -51,13 +89,20 @@ function tilesClick(tile){
 		sort_hands();
 
 
-		tehai_num++;//次の手牌を選択
-		if(tehai_num >12){//手牌が13個選ばれれば初期登録モードを終了
+		tehaiNum++;//次の手牌を選択
+		if(tehaiNum >12){//手牌が13個選ばれれば初期登録モードを終了
 			regist_flag = false;
 			hantei13();
+			let element = document.getElementById('registText');
+			element.style.display=("none");
+			if(wait_tile_num>0){
+			element = document.getElementById('ron');
+			element.style.display = "block";
+			}
 		}
 	}//ツモ牌を選択する部分
 	else{
+		chihouFlag = false;
 		let input_data = document.createElement("img");					//挿入するHTMLタグを決める
   		input_data.src = "/B5/img/ma-jan_"+tile_name+".png";			//属性と属性値を決める
 		input_data.alt = "tile_name"
@@ -90,6 +135,8 @@ function tilesClick(tile){
 function doraClick(){
 	if(regist_flag === false && dora_num < 5){//初期登録が終わっており、ドラが五つ選択されていなければドラ選択状態に移行
 		dora_flag = true;
+		element = document.getElementById('doraText');
+		element.style.display=("block");
 	}
 }
 
@@ -99,9 +146,17 @@ function tehaiClick(num){
 		let tehai_name = num.id;						//選択されている手牌のIDを取得
 		hands.splice(exchangeHandsName(tehai_name),1);	//手牌から削除
 		sort_hands();									//手牌からソート
-		tehai_num--;									//手牌の登録数を減らす
+		tehaiNum--;									//手牌の登録数を減らす
 	}
-	if(tumo_flag===true){//ツモ牌が登録されていれば手牌に登録
+	else if(nakiFlag){
+		let tehai_name = num.id;						//選択されている手牌のIDを取得
+		hands.splice(exchangeHandsName(tehai_name),1);	//手牌から削除
+		sort_hands();									//手牌からソート
+		nakiFlag = false;
+		ponFlag = false;
+	}
+	else if(tumo_flag){//ツモ牌が登録されていれば手牌に登録
+		tenhouFlag = false;
 		let tehai_name = num.id;													//選択されている手牌のIDを取得
 		hands.splice(exchangeHandsName(tehai_name),1);  //選択された牌を削除して、ツモ牌に登録されている牌を追加する。
 		//console.log("ツモ牌"+exchangeTileName(tumo_name));
@@ -127,7 +182,7 @@ function tehaiClick(num){
 		let element = document.getElementById('tumotile');
 		element.style.backgroundColor = "#F0F0F0;";
 
-		for(let i = 0;i<13;i++){
+		for(let i = 0;i<hands.length;i++){
 			let element = document.getElementById('tehai'+i);
 			element.style.backgroundColor = "#F0F0F0";
 		}
@@ -140,6 +195,32 @@ function tehaiClick(num){
 		if(wait_tile_num>0){
 			element = document.getElementById('ron');
 			element.style.display = "block";
+		}
+	}
+	else if(ponFlag){//ポンポップアップが出ているときの処理
+		let element = document.getElementById(num.id+"img");
+		let tileName = element.alt;
+		let tileNum = exchangeTileName(tileName);
+		if(hands.indexOf(tileNum)+1 ===hands.indexOf(tileNum,hands.indexOf(tileNum)+1)){
+			element = document.getElementById("ponTile");
+			element.src="/B5/img/ma-jan_"+tileName+".png";
+			element.alt = tileName;
+			ponTileNum=tileNum;
+		}
+		else if(tileNum ===4 || tileNum ===14 || tileNum ===24)
+			if(hands.indexOf(tileNum)>0 && hands.indexOf(tileNum+1)>0){
+				elememt = document.getElementById("ponTile");
+				element.src="/B5/img/ma-jan_"+tileName+".png";
+				element.alt = tileName;
+				ponTileNum=tileNum+1;
+			}
+		}
+		else if(tileNum ===5 || tileNum ===15 || tileNum ===25){
+			if(hands.indexOf(tileNum-1)+1 ===hands.indexOf(tileNum-1,hands.indexOf(tileNum)+1)){
+				elememt = document.getElementById("ponTile");
+				element.src="/B5/img/ma-jan_"+tileName+".png";
+				element.alt = tileName;
+				ponTileNum=tileNum;
 		}
 	}
 }
@@ -168,7 +249,7 @@ function tumoTileClick(){
 		let element = document.getElementById('tumotile');
 		element.style.backgroundColor = "#F0F0F0;";
 
-		for(let i = 0;i<13;i++){
+		for(let i = 0;i<hands.length;i++){
 			let element = document.getElementById('tehai'+i);
 			element.style.backgroundColor = "#F0F0F0";
 		}
@@ -185,10 +266,69 @@ function tumoTileClick(){
 	}
 }
 
+//ツモかロンボタンを押すと動くメソッド
+function resultClick(result){
+	if(result.id=="finish"){
+		window.location.href = "/B5/Result2Servlet";
+	}
+	else if(result.id=="ron"){
+		window.location.href = "/B5/ResultServlet";
+	}
+	else if(result.id=="tsumo"){
+		window.location.href = "/B5/ResultServlet";
+	}
+}
+
+//リーチボタンを押すと動くメソッド
+function reachClick(){
+	let element = document.getElementById('reach');
+	if(reachFlag){
+		reachFlag = false;
+		element.style.backgroundColor = "#FFFFFF";
+	}
+	else{
+		reachFlag = true;
+		element.style.backgroundColor = "#FFFF00";
+	}
+}
+
+//ポンボタンを押すと動くメソッド
+function ponClick(){
+	let element = document.getElementById('pon');
+	element.style.display = ("inline");
+	ponFlag = true;
+}
+
+/*
+function chiClick(){
+	let element = document.getElementById('chi');
+	element.style.display = ("inline");
+	chiFlag = true;
+}
+*/
+
+//ポンポップアップの決定ボタンを押すと動くメソッド
+function ponDecision(){
+	if(ponTileNum === 5 || ponTileNum === 15 || ponTileNum === 25){
+		nakiTiles.push(ponTileNum-1);
+		hands.splice(hands.indexOf(ponTileNum),1);
+		hands.splice(hands.indexOf(ponTileNum-1),1);
+		nakiFlag = true;
+	}
+	else{
+		nakiTiles.push(ponTileNum);
+		for(let i = 0;i<2;i++){
+			hands.splice(hands.indexOf(ponTileNum),1);
+		}
+		sort_hands()
+		nakiFlag = true;
+	}
+}
+
 //整牌するメソッド
 function sort_hands(){
 	hands.sort(compareNumbers);
-		for(let i=0;i<13;i++){
+	for(let i=0;i<hands.length;i++){
 		let input_data = document.createElement("img");			//挿入するHTMLタグを決める
 		if(hands.length>i){
 			input_data.src = "/B5/img/ma-jan_"+exchangeTileId(hands[i])+".png";			//属性と属性値を決める
@@ -196,7 +336,7 @@ function sort_hands(){
 		else{
 			input_data.src = "/B5/img/ma-jan_back.png";
 		}
-		input_data.alt = "exchangeTilesId(tehai[i])"
+		input_data.alt = exchangeTileId(hands[i])
 		input_data.style = "height: 100%;"
 	  	input_data.id = "tehai"+ i +"img";
 
@@ -204,6 +344,13 @@ function sort_hands(){
 
 		parent.removeChild(document.getElementById("tehai"+ i +"img"));	//もともと入っていたものを削除
 	  	parent.appendChild(input_data);									//選択した牌を挿入
+	}
+	if(!regist_flag){
+		for(let i = hands.length;i<tehaiNum;i++){
+			let parent = document.getElementById("tehai"+i);				//親を決める
+			parent.removeChild(document.getElementById("tehai"+ i +"img"));	//もともと入っていたものを削除
+		}
+		tehaiNum = hands.length;
 	}
 }
 
@@ -216,7 +363,7 @@ function hantei13(){
 	wait_tile.length = 0;
 
 	//赤ドラ分のずれを補正
-	for(let i = 0;i < 13;i++){
+	for(let i = 0;i < hands.length;i++){
 		if(hands_tmp[i] > 4 && hands_tmp[i] <15){
 			hands_tmp.splice(i,1,hands_tmp[i]-1);
 		}
@@ -624,7 +771,7 @@ function hantei14(){
 		//wait_tile_num = wait_tile.length;
 	}
 	for(let tmp of tenpai_hand){
-		if(tmp===13){
+		if(tmp===hands.length){
 			let element = document.getElementById('tumotile');
 			element.style.backgroundColor = "#FFFFEE;";
 		}
@@ -635,8 +782,10 @@ function hantei14(){
 		//console.log(tmp);
 	}
 	if(tenpai_hand.length > 0){
-		let element = document.getElementById('reach');
-		element.style.display = "block";
+		if(!reachFlag){
+			let element = document.getElementById('reach');
+			element.style.display = "block";
+		}
 	}
 }
 
@@ -748,6 +897,8 @@ function agari(){
     		}
     		if (arraysAreEqual(tile_tmp2_head,zeros)){
     			agariDatas.push(agariData);
+    			element = document.getElementById('tsumo');
+				element.style.display = "block";
     		}
     		//刻子の探索
     		const kotsu = [];
@@ -784,7 +935,9 @@ function agari(){
         			}
         		}
         		if (arraysAreEqual(tile_tmp2_head,zeros)){
-				agariDatas.push(agariData);
+					agariDatas.push(agariData);
+					element = document.getElementById('tsumo');
+					element.style.display = "block";
     			}
     		}
     	}
@@ -942,58 +1095,58 @@ function agari(){
 	    }
 	    //白
 	    if(tmp.length>=2&&tmp.length<=5){
-	    	for(let tmp1 of tmp){
-	    		if(tmp1[0]===31){
+	    	for(let i = 1;i < tmp.length;i++){
+	    		if(tmp[i][0]===31){
 	    			yakus.push(7)
 	    		}
 	    	}
 	    }
 	    //発
 	    if(tmp.length>=2&&tmp.length<=5){
-	    	for(let tmp1 of tmp){
-	    		if(tmp1[0]===32){
+	    	for(let i = 1;i < tmp.length;i++){
+	    		if(tmp[i][0]===32){
 	    			yakus.push(8)
 	    		}
 	    	}
 	    }
 	    //中
 	    if(tmp.length>=2&&tmp.length<=5){
-	    	for(let tmp1 of tmp){
-	    		if(tmp1[0]===33){
+	    	for(let i = 1;i < tmp.length;i++){
+	    		if(tmp[i][0]===33){
 	    			yakus.push(9)
 	    		}
 	    	}
 	    }
 	    //場風牌
 	    if(tmp.length>=2&&tmp.length<=5){
-	    	for(let tmp1 of tmp){
-	    		if(wind ===0 && tmp1[0]===27){
+	    	for(let i = 1;i < tmp.length;i++){
+	    		if(wind ===0 && tmp[i][0]===27){
 	    			yakus.push(10)
 	    		}
-	    		if(wind ===1 && tmp1[0]===28){
+	    		if(wind ===1 && tmp[i][0]===28){
 	    			yakus.push(10)
 	    		}
-	    		if(wind ===2 && tmp1[0]===29){
+	    		if(wind ===2 && tmp[i][0]===29){
 	    			yakus.push(10)
 	    		}
-	    		if(wind ===3 && tmp1[0]===30){
+	    		if(wind ===3 && tmp[i][0]===30){
 	    			yakus.push(10)
 	    		}
 	    	}
 	    }
 	    //自風牌
 	    if(tmp.length>=2&&tmp.length<=5){
-	    	for(let tmp1 of tmp){
-	    		if(seatWind ===0 && tmp1[0]===27){
+	    	for(let i = 1;i < tmp.length;i++){
+	    		if(seatWind ===0 && tmp[i][0]===27){
 	    			yakus.push(11)
 	    		}
-	    		if(seatWind ===1 && tmp1[0]===28){
+	    		if(seatWind ===1 && tmp[i][0]===28){
 	    			yakus.push(11)
 	    		}
-	    		if(seatWind ===2 && tmp1[0]===29){
+	    		if(seatWind ===2 && tmp[i][0]===29){
 	    			yakus.push(11)
 	    		}
-	    		if(seatWind ===3 && tmp1[0]===30){
+	    		if(seatWind ===3 && tmp[i][0]===30){
 	    			yakus.push(11)
 	    		}
 	    	}
@@ -1016,7 +1169,7 @@ function agari(){
 	    }
 	    //ダブリー
 	    if(dReachFlag){
-	    	yakus.push(17)
+	    	yakus.push(16)
 	    }
 	    //チャンタ
 	    if(tmp.length>=2){
@@ -1032,7 +1185,7 @@ function agari(){
 	    		}
 	    	}
 	    	if(num==tmp.length){
-	    		yakus.push(18)
+	    		yakus.push(17)
 	    	}
 	    }
 	    //混老頭
@@ -1044,7 +1197,7 @@ function agari(){
 	    		}
 	    	}
 	    	if(num === 5){
-	    		yakus.push(36);
+	    		yakus.push(18);
 	    	}
 	    }
 	    //同順
@@ -1057,11 +1210,11 @@ function agari(){
 	    	}
 	    	if(nums.length>3){
 	    		if(nums[0]+9===nums[1]&&nums[1]+9===nums[2]){
-	    			yakus.push(20);
+	    			yakus.push(19);
 	    		}
 	    		else if(nums.length===4){
 	    			if((nums[0]+9===nums[1]&&nums[1]+9===nums[3])||nums[0]+9===nums[2]&&nums[2]+9===nums[3]||nums[1]+9===nums[2]&&nums[2]+9===nums[3]){
-	    				yakus.push(20);
+	    				yakus.push(19);
 	    			}
 	    		}
 	    	}
@@ -1076,13 +1229,13 @@ function agari(){
 					}
 	    		}
 	    	}
-	    	if(nums.length>3){
+	    	if(nums.length>=3){
 	    		if(nums[0]+3===nums[1]&&nums[1]+3===nums[2]){
-	    			yakus.push(21);
+	    			yakus.push(20);
 	    		}
 	    		else if(nums.length===4){
 	    			if((nums[0]+3===nums[1]&&nums[1]+3===nums[3])||nums[0]+3===nums[2]&&nums[2]+3===nums[3]||nums[1]+3===nums[2]&&nums[2]+3===nums[3]){
-	    				yakus.push(21);
+	    				yakus.push(20);
 	    			}
 	    		}
 	    	}
@@ -1096,7 +1249,7 @@ function agari(){
 	    		}
 	    	}
 	    	if(num === 5){
-	    		yakus.push(22);
+	    		yakus.push(21);
 	    	}
 	    }
 	    //同刻
@@ -1109,11 +1262,11 @@ function agari(){
 	    	}
 	    	if(nums>=3){
 	    		if(nums[0]+9===nums[1]&&nums[1]+9===nums[2]){
-	    			yakus.push(23);
+	    			yakus.push(22);
 	    		}
 	    		else if(nums.length===4){
 	    			if((nums[0]+9===nums[1]&&nums[1]+9===nums[3])||nums[0]+9===nums[2]&&nums[2]+9===nums[3]||nums[1]+9===nums[2]&&nums[2]+9===nums[3]){
-	    				yakus.push(23);
+	    				yakus.push(22);
 	    			}
 	    		}
 	    	}
@@ -1122,7 +1275,19 @@ function agari(){
 	    //三槓子
 	    //チートイツ
 	    if(tmp.length===7){
-	    	yakus.push(26);
+	    	yakus.push(25);
+	    }
+	    //小三元
+	    if((tmp.length===4||tmp.length===5)&&(tmp[0][0]>=31&&tmp[0][0]<=33)){
+	    	let num = 0;
+	    	for(let tmp1 of tmp){
+	    		if(tmp1[0]>=31&&tmp1[0]<=33){
+	    			num++;
+	    		}
+	    	}
+	    	if(num===3){
+	    		yakus.push(26)
+	    	}
 	    }
 	    //純チャン
 	    if(tmp.length>=2){
@@ -1138,7 +1303,7 @@ function agari(){
 	    		}
 	    	}
 	    	if(num==tmp.length){
-	    		yakus.push(18)
+	    		yakus.push(27)
 	    	}
 	    }
 	    //ホンイツ
@@ -1169,24 +1334,12 @@ function agari(){
 	    		}
 	    	}
 	    	if(num === num.length){
-	    		yakus.push(19);
+	    		yakus.push(28);
 	    	}
 	    }
 	    //リャンペイコー
 	    if(tmp.length===3){
 	    	yakus.push(29);
-	    }
-	    //小三元
-	    if((tmp.length===4||tmp.length===5)&&(tmp[0][0]>=31&&tmp[0][0]<=33)){
-	    	let num = 0;
-	    	for(let tmp1 of tmp){
-	    		if(tmp1[0]>=31&&tmp1[0]<=33){
-	    			num++;
-	    		}
-	    	}
-	    	if(num===3){
-	    		yakus.push(30)
-	    	}
 	    }
 	    //清一色
 	    if(tmp.length>=2){
@@ -1225,6 +1378,7 @@ function agari(){
 	}
 }
 
+//組み合わせの探索
 function combination(nums, k){
     let ans = [];
     if (nums.length < k) {
@@ -1245,6 +1399,7 @@ function combination(nums, k){
     return ans;
 }
 
+//配列の比較
 function arraysAreEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) {
         return false;
