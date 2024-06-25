@@ -6,6 +6,7 @@
   align-items: center;
   padding: 0 20px;
   background: #FFE;
+  max-width: 100%;
 }
 
 
@@ -20,7 +21,7 @@
 .drawer_open {
   display: flex;
   height: 60px;
-  width: 60px;
+  width: 100px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -76,7 +77,7 @@
   top: 0;
   left: 100%; /* メニューを画面の外に飛ばす */
   z-index: 99;
-  background: #fff;
+  background: #FFE;
   transition: .5s;
 }
 
@@ -89,52 +90,80 @@
 #drawer_input:checked ~ .nav_content {
   left: 0;/* メニューを画面に入れる */
 }
+
+
+
+
 .container{
   background: #d9f2d0;
-  width: 1250px;
-  height: 500px;
+  width: 1050px;
+  height: 300px;
   border-radius: 50px;
   margin:10px auto;
   border-color: #000000;
 }
 
 html {
-  text-align: center;
   background: #FFE;
+  font-size: 15px;
+  font-family: sans-serif;
+  text-align: center;
 }
+
 
 .ranking {
   text-align: right;
+  top: 0;
+  font-size: 25px;
 }
 
 .date {
   text-align: left;
   text-indent: 30px;
+  font-size: 30px;
 }
 
 .user {
   text-align: left;
+  float: left;
 }
 
-input[type="submit"] {
+.button {
   padding: 1px;
   width: 10em;
   height: 3em;
   font-size: 30px;
-  background-color: #f63;
+  background: #f63;
   color: #000000;
   margin: 50px 0 0 0;
   border-radius: 50px;
   font-weight: bold;
 }
 
-.his {
+.h1 {
 	  border-radius: 50px;
 	  background-color: #6c6;
 	  font-size: 50px;
+	  text-align: center;
+	  max-width: 100%;
 }
 
 .opponents {
 	font-size: 30px;
+}
+.but {
+	font-size: 50px;
+	size:100px;
+}
 
+.point {
+	font-size: 100px;
+	color: red;
+	margin: 0 0 0 0;
+}
+.rank {
+	font-size: 40px;
+}
+.yuser {
+	color: #f63;
 }
