@@ -1,83 +1,121 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
   <meta charset="UTF-8">
-  <header id="header">
-  </header>
   <title>麻雀ガイド画面</title>
   <link rel="stylesheet" type="text/css" href="/B5/css/guide.css">
   <link rel="stylesheet" type="text/css" href="/B5/css/common.css">
-  <form method="post" action="/B5/GuideServlet">
-  </form>
+</head>
 
-  </head>
-  <body>
-  <div class="tab02">
-  <input id="table01_01" type="radio" name="table01" class="tab_active" checked="checked" /><label class="tab_label" for="table01_01">ルール</label>
-  <div class="tab_content">
-  麻雀とは？
-  <br>
-  四人で卓を囲み、牌を用いて遊ぶゲームです。<br>​
-  最初に上がりの形にした人が点数をもらえます。<br>​
-  最終的に一番多くの点を持っている人が勝ちになるゲームです。<br>
-  <br>
-  基本的なルールを押さえよう<br>
-  ①牌を14枚集めて完成目指す<br>
-  麻雀は手元に13枚の牌があります。これを手牌(テハイ)と言います。手牌13枚の状態で、各プレイヤーが順番にゲームの最初に作った壁牌(ピーパイ)／牌山(ハイヤマ)から牌をツモ(取得)します。
-  この時点で手牌は14枚になり、ツモと同時にいらない牌を河(ホー)に捨て、13枚に戻ります。後1枚でアガり形が完成する状態をテンパイと言います。
-  テンパイではない状態をノーテンと言います。テンパイからアガりの形が完成すると手牌は14枚になります。
-  手牌13枚がテンパイとなり、最後のアガり牌の14枚目の牌が揃った時点でアガりの形が完成です。そしてこの最後のアガり牌はロンかツモで揃えます。
-<br><br>
-  ② 最後のアガり牌は ロン か ツモ<br>
-  最後のアガり牌の揃え方はロンとツモの2種類があります。
-  ロンは、他家(ターチャ＝他のプレイヤー)が打牌(ダハイ)した河(ホー)の捨て牌を取得して14枚目を揃えてアガりの形を完成させることです。
-  ツモは牌山から取得した牌で最後のアガり牌を揃えてアガりの形を完成させることです。
-<br><br>
-  ③リーチ とはで<br>
-  リーチとは、麻雀最も基本的な役です。役というのは、上述した4メンツ1ジャントウの組み合わせ＋(プラス)ある決められたルールに従って牌を揃えることで成立するアガるための条件です。
-  リーチをするには、テンパイの状態で、現在自分がテンパイであることをリーチの掛け声と共に宣言します。さらに、手持ちの1,000点を供託用としてその場に出します。
-  これがリーチの方法です。テンパイであればいつでもリーチすることが出来ます。
-<br><br>
-  ④ ポン、チー、カン（鳴き）<br>
-  ポン、チー、カン(ここでは 大明槓＝ダイミンカン のこと)は、順子(シュンツ)、刻子(コーツ)、槓子(カンツ) などの メンツ を作る際に、後1枚足りない状態から最後の1枚を 他家(ターチャ) が 打牌(ダハイ) した 河(ホー) の捨て牌から取得する方法です。<br><br>
-   (a)ポン とは、手牌の 対子(トイツ) を 刻子(コーツ) にする際、他家の捨て牌を貰って メンツ を作る行為のことです。
-   トイツとは全く同じ種類の牌2枚1組のことで、コーツ とは全く同じ種類の牌3枚1組のメンツのことです。
-   ポン をしたら、その3枚の牌をみんなが見えるように倒して開きます。これを晒す(さらす)などと言います。晒した牌は自分から見て右端に置きます。そして最後に 手牌 の中から要らない牌を捨てます。<br><br>
-   (b)チー とは、手牌の 搭子(ターツ)を 順子(シュンツ)にする際、上家(カミチャ)の捨て牌を貰って メンツ を作る行為のことです。
-   ターツ とは後1枚揃えば シュンツ が完成する2枚の組み合わせのことで、シュンツ とは、3枚連続した数牌の組み合わせとなっている メンツ のことです。 カミチャ は自分から見て左のプレイヤーのことです。
-   チー をしたら、その3枚の牌をみんなが見えるように倒して開きます。これを晒すなどと言います。晒した牌は一番左を横に倒します。これはどの牌を貰ったか分かるようにするためです。<br>
-   (c)カン とは、手牌の 刻子(コーツ)を 槓子(カンツ)にする際、他家の捨て牌を貰って メンツ を作る行為のことです。コーツ とは全く同じ種類の牌3枚の組み合わせとなっている メンツ のことで、カンツ とは、全く同じ種類の牌4枚の組み合わせとなっている メンツ のことです。
-   カン をしたら、その4枚の牌をみんなが見えるように倒して開きます。これを晒すなどと言います。晒した牌は自分から見て右端に置きます。<br><br>
-   ⑤フリテン<br>​
-   フリテン とは、ロン が出来ない テンパイ のことです。つまり、ロン禁止テンパイです。<br> テンパイ は先ほど説明しましたが、後1枚必要な 牌 が手牌に加われば アガり形 が完成する状態です。
-   通常は 4メンツ＋1ジャントウの形が揃い 役 があれば、いつでも ロン でアガることが出来ます。
-   ところが、4メンツ＋1ジャントウ で 役 があっても、 ロン が出来ない場合があります。それが フリテン です。<br>
-   1、捨て牌によるフリテン＝自分の捨て牌に自分の アガり牌 がある場合： ロン できない！<br>
-   2、見逃しによるフリテン＝リーチ 後 他家 が ダハイ した アガり牌 を見逃してしまった：以降は ロン できない。<br>
-   残念ながら上述のようにリーチ後に フリテン となったら 局の最後まで ロン はできなくなります。ですが、 ツモ によってアガることは可能です。<br><br>
-   ⑥ドラ
-   ドラとは、いわゆる懸賞牌と言われる牌で、手牌に持っているだけで1枚につき1翻(ハン)プラスされます。<br>
-   例えば東がドラ牌の場合、東の暗刻(アンコ)であれば、ドラ3で3翻となります。ですが、ドラ牌はそれだけで役が付くわけではないので、ドラ牌を持っているだけではアガることが出来ません。<br>
-   局 の最初の配牌時に ドラ表示牌 を決めます。王牌(ワンパイ) と呼ばれる場所に ドラ表示牌 があります。<br> <br>
-   ⑦裏ドラとは
-      実はドラには裏ドラと言われるものがあります。裏ドラはドラ表示牌の直ぐ下に位置する牌が裏ドラのドラ表示牌になり、ドラと同様に裏ドラ牌は裏ドラ表示牌の次の牌になります。<br>
- この裏ドラはリーチをかけてアガった場合にドラに加えて加算することが出来ます。<br>  <br>
-  </div>
-  <input id="table01_02" type="radio" name="table01" class="tab_active" /><label class="tab_label" for="table01_02">始め方</label>
-  <div class="tab_content">
-  コンテンツ内容 2
-  </div>
-  <input id="table01_03" type="radio" name="table01" class="tab_active" /><label class="tab_label" for="table01_03">牌の説明</label>
-  <div class="tab_content">
-  コンテンツ内容 3
-  </div>
-  <input id="table01_04" type="radio" name="table01" class="tab_active" /><label class="tab_label" for="table01_04">役</label>
-  <div class="tab_content">
-  コンテンツ内容 4
-  </div>
-  </div>
-  </body>
+<body>
+<header>
+        <ul class="g-menu">
+          <li class="g-menu__item">
+         <input type="radio" name="tabset" id="start" ><label for="start"  class="g-menu__link">ルール</label>
+            <ul class="g-menu__dropdown-menu">
+            <li class="g-menu__dropdown-menu-item">
+                <button id="mahajan" class="g-menu__dropdown-menu-link">麻雀とは？</button>
+                </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="kanseikei" class="g-menu__dropdown-menu-link">完成形</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="rontotsumo" class="g-menu__dropdown-menu-link">ロンとツモ</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="reach" class="g-menu__dropdown-menu-link">リーチ</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="naki" class="g-menu__dropdown-menu-link">鳴き</button>
+                </li>
+                <li class="g-menu__dropdown-menu-item">
+                <button id="huriten"  class="g-menu__dropdown-menu-link" >フリテン</button>
+                </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="dora" class="g-menu__dropdown-menu-link">ドラ</button>
+                 </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="uradora" class="g-menu__dropdown-menu-link">裏ドラ</button>
+              </li>
+             <li class="g-menu__dropdown-menu-item">
+                <button id="tensuu"class="g-menu__dropdown-menu-link">点数</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="siaisuu" class="g-menu__dropdown-menu-link">試合数</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                 <button id="yaku"  class="g-menu__dropdown-menu-link">役</button>
+              </li>
+            </ul>
+          </li>
+            <li class="g-menu__item">
+            <input type="radio" name="tabset" id="start" ><label for="start"  class="g-menu__link">始め方</label>
+
+            <ul class="g-menu__dropdown-menu">
+              <li class="g-menu__dropdown-menu-item">
+               <button id="basho" class="g-menu__dropdown-menu-link">場所の決め方</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="oya" class="g-menu__dropdown-menu-link">親の決め方</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="painookikata" class="g-menu__dropdown-menu-link">牌の置き方/取り方</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="dorahyoujihai" class="g-menu__dropdown-menu-link">ドラ表示牌/終了時</button>
+              </li>
+            </ul>
+          </li>
+          <li class="g-menu__item">
+            <input type="radio" name="tabset" id="pai"><label for="pai"  class="g-menu__link">牌の種類</label>
+            <ul class="g-menu__dropdown-menu">
+              <li class="g-menu__dropdown-menu-item">
+                <button id="manzu" class="g-menu__dropdown-menu-link">萬子</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="pinzu" class="g-menu__dropdown-menu-link">筒子</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="souzu" class="g-menu__dropdown-menu-link">索子</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="kazehai" class="g-menu__dropdown-menu-link">風牌</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="sangenpai" class="g-menu__dropdown-menu-link">三元牌</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="akadora" class="g-menu__dropdown-menu-link">赤ドラ</button>
+              </li>
+            </ul>
+          </li>
+          <li class="g-menu__item">
+            <input type="radio" name="tabset" id="han"><label for="han"  class="g-menu__link">役の種類</label>
+            <ul class="g-menu__dropdown-menu">
+              <li class="g-menu__dropdown-menu-item">
+                <button id="1han" class="g-menu__dropdown-menu-link">1翻役</button>
+               </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="2han" class="g-menu__dropdown-menu-link">2翻役</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="356han" class="g-menu__dropdown-menu-link">3/5/6翻役</button>
+              </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="yakuman" class="g-menu__dropdown-menu-link">役満/ダブル役満</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
+</header>
+
+<img  id="main_content" src="img/mahajantoha.png">
+
+<script type="text/javascript" src="js/guide.js" defer> </script>
+ </body>
+
 
 </html>

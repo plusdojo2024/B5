@@ -205,14 +205,14 @@
 
 
 <div class = "buttons">
-	<button type = "button" >1つ戻る</button>
-	<button type = "button" style = "display: none" id = "tsumo" onclick="resultClick(this)">ツモ</button>
-	<button type = "button" style = "display: none" id = "ron" onclick="resultClick(this)">ロン</button>
-	<button type = "button" style = "display: none" id = "reach" onclick="reachClick()">リーチ</button>
-	<button type = "button">カン</button>
-	<button type = "button" onclick="ponClick()">ポン</button>
-	<button type = "button" onclick="chiClick()">チー</button>
-	<button type = "button" id = "finish" onclick="resultClick(this)">局終了</button>
+	<button type = "button" class = "button">1つ戻る</button>
+	<button type = "button" class = "button" style = "display: none" id = "tsumo" onclick="resultClick(this)">ツモ</button>
+	<button type = "button" class = "button" style = "display: none" id = "ron" onclick="resultClick(this)">ロン</button>
+	<button type = "button" class = "button" style = "display: none" id = "reach" onclick="reachClick()">リーチ</button>
+	<button type = "button" class = "button">カン</button>
+	<button type = "button" class = "button" onclick="ponClick()">ポン</button>
+	<button type = "button" class = "button" onclick="chiClick()">チー</button>
+	<button type = "button" class = "button" id = "finish" onclick="resultClick(this)">局終了</button>
 </div>
 
 <div class="tehai">
@@ -257,7 +257,6 @@
 	</button>
 </div>
 <div class="tumotile">
-	ツモ牌<br>
 	<button type="button" class="tumohaiTileButton" id = "tumotile" onclick = "tumoTileClick()">
 	  <img src="/B5/img/ma-jan_back.png" alt="back" class="tile"id="tumotileimg">
 	</button>
