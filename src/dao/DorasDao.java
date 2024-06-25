@@ -34,7 +34,7 @@ import model.Doras;
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
-			//結果表をコレクションにコピーする
+			//結果表をコレクションにコピーする。
 			while(rs.next()) {
 				Doras record = new Doras(
 				rs.getInt("id"),

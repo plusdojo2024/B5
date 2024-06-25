@@ -16,7 +16,7 @@ public class TeyakusDAO {
 		List<Teyakus> list = new ArrayList<Teyakus>();//入れ物
 
 		try {
-			//JDBCドライバを読み込む
+			//JDBCドライバを読み込む。
 			Class.forName("org.h2.Driver");
 			//データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/B5", "sa", "");

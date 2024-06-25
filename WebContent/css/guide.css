@@ -1,54 +1,162 @@
-﻿.tab02 {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto 50px;
+﻿/* リセット */
+
+* {
+  margin: 0;
+  padding: 0;
 }
-.tab02:after {
-  content: '';
-  width: 100%;
-  height: 2px;
-  background:#66cc66;
-  display: block;
-  order: -1;
+
+li {
+  list-style: none;
 }
-.tab_label {
-  height: 60px;
-  line-height: 60px;
-  color: black;
-  background: white;
-  font-weight: bold;
-  white-space: nowrap;
-  text-align: center;
-  order: -1;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  border-radius: 5px 5px 0 0;
-  flex: 1;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
-.tab_label:not(:last-of-type) {
-  margin-right: 5px;
-}
-.tab_content {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-}
-/* アクティブタブ */
-.tab_active:checked+.tab_label {
-  color:black;
-  background:#66cc66;
-}
-.tab_active:checked+.tab_label+.tab_content {
+
+/* ベース設定 */
+body {
   height: auto;
-  overflow: auto;
-  padding: 40px;
+}
+
+
+/* メイン部分 */
+.g-menu {
+  display: flex;
+/*   position:absolute;
+  z-index:1; */
+}
+
+.g-menu__item {
+  position: relative;
+  border-bottom: 2px solid #66cc66;
+}
+
+
+.g-menu__link {
+  display: block;/* ポイント！！ */
+  padding: 20px 40px;/* ポイント！！ */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  border: 2px solid #66cc66;
+  border-radius:10px 10px 0 0;
+  margin-right:5px;
+  width: 100px;
+
+
+}
+
+.g-menu__dropdown-menu {
+  opacity: 0;/* ポイント！！ */
+  pointer-events: none;/* ポイント！！ */
+  position: absolute;
+  top: 100%;/* ポイント！！ */
+  left: 0;
+  background: #66cc66;
+  width: 100%;
+}
+
+.g-menu__dropdown-menu-item {
+  border-bottom: 1px solid white;
+}
+.g-menu__dropdown-menu-item:last-child {
+  border-width: 0;
+}
+
+.g-menu__dropdown-menu-link {
+  display: block;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.g-menu__item:hover .g-menu__link {
+  color: white;
+  background-color:#66cc66;
+  border-bottom: 2px solid white;
+  transition: .3s;
+}
+
+.g-menu__item:hover .g-menu__dropdown-menu {
   opacity: 1;
-  transition: .5s opacity;
-  box-shadow: 0 0 3px rgba(0,0,0,.2);
+  pointer-events: auto;
+  transition: .5s;
 }
-/* ラジオボタン非表示 */
-.tab_active {
+
+.g-menu__dropdown-menu-link:hover {
+  background: #3cb371;
+  color: white;
+}
+
+/*ラジオボタンの非表示*/
+#pai {
+display: none; /* 標準スタイル */
+}
+
+#rule {
+display: none; /* 標準スタイル */
+}
+#han {
+display: none; /* 標準スタイル */
+}
+#start {
+display: none; /* 標準スタイル */
+}
+
+/*以下タブエリア用↓↓*/
+
+/* コンテンツ */
+.tab-content-item {
+  /* コンテンツは非表示にしておく */
   display: none;
+  /* パディング */
+  padding: auto;
+  /* コンテンツに収まらない場合は非表示 */
+  overflow: visible;
 }
+#main_content {
+/* 	display:none; */
+}
+
+#tabContent01 {
+/* 	position:relative;
+	Z-index:5; */
+}
+/* ラジオボタンがチェックされたら、コンテンツを表示 */
+#rule:checked ~ #tabContent01,
+#start:checked ~ #tabContent02,
+#pai:checked ~ #tabContent03,
+#han:checked ~ #tabContent04{
+  display: block;
+}
+
+/* コンテンツのPタグ */
+.tab-content-item p {
+  padding-bottom: 1em;
+}
+
+ #mahajan, #kanseikei, #rontotsumo, #reach, #naki,#naki,#dora,#uradora,#tensuu,#siaisuu,#yaku,#basho,#oya,#painookikata,#dorahyoujihai,
+ #manzu,#pinzu,#souzu,#kazehai,#sangenpai,#akadora,#1han,#2han,#356han,#yakuman {
+ border: none;
+  background: transparent;
+ }
+
+ #mahajan,#kanseikei, #rontotsumo,#reach, #naki,#naki,#dora,#uradora,#huriten,#tensuu,#siaisuu,#yaku{
+ border: none;
+  background: transparent;
+ }
+
+ #basho,#oya,#painookikata,#dorahyoujihai {
+ border: none;
+ background: transparent;
+ }
+ #manzu,#pinzu,#souzu,#kazehai,#sangenpai,#akadora{
+ border: none;
+  background: transparent;
+ }
+
+ #1han,#2han,#356han,#yakuman{
+border: none;
+ background: transparent;
+ }
