@@ -68,7 +68,7 @@ function tilesClick(tile){
 		let input_data = document.createElement("img");						//挿入するHTMLタグを決める
   		input_data.src = "/B5/img/ma-jan_"+tile_name+".png";				//属性と属性値を決める
 		input_data.alt = "tile_name";
-		input_data.style = "height: 100%;";
+		input_data.className = "tile";
       	input_data.id = "doraimg"+dora_num;
 
       	let parent = document.getElementById("dora"+dora_num);				//親を決める
@@ -106,7 +106,7 @@ function tilesClick(tile){
 		let input_data = document.createElement("img");					//挿入するHTMLタグを決める
   		input_data.src = "/B5/img/ma-jan_"+tile_name+".png";			//属性と属性値を決める
 		input_data.alt = "tile_name"
-		input_data.style = "height: 100%;"
+		input_data.className = "tile";
       	input_data.id = "tumotileimg";
 
       	let parent = document.getElementById("tumotile");				//親を決める
@@ -119,12 +119,19 @@ function tilesClick(tile){
 		}
 		hands.push(exchangeTileName(tile_name));
 
+		let element = document.getElementById('tumotile');
+		element.style.backgroundColor = "#F0F0F0;";
+
+		for(let i = 0;i<hands.length-1;i++){
+			element = document.getElementById('tehai'+i);
+			element.style.backgroundColor = "#F0F0F0";
+		}
+
 		hantei14();
-		agari();
 		tumo_flag = true;		//ツモ牌を選んでいる状態
 		tumo_name = tile_name   //ツモ牌を記録
 
-		let element = document.getElementById('ron');
+		element = document.getElementById('ron');
 		element.style.display = "none";
 	}
 
@@ -166,8 +173,8 @@ function tehaiClick(num){
 		//ツモ牌を選択していない状態に
 		input_data = document.createElement("img");						//挿入するHTMLタグを決める
   		input_data.src = "/B5/img/ma-jan_back.png";						//属性と属性値を決める
-		input_data.alt = "back"
-		input_data.style = "height: 100%;"
+		input_data.alt = "back";
+		input_data.className = "tile";
       	input_data.id = "tumotileimg";
 
       	parent = document.getElementById("tumotile");					//親を決める
@@ -183,7 +190,7 @@ function tehaiClick(num){
 		element.style.backgroundColor = "#F0F0F0;";
 
 		for(let i = 0;i<hands.length;i++){
-			let element = document.getElementById('tehai'+i);
+			element = document.getElementById('tehai'+i);
 			element.style.backgroundColor = "#F0F0F0";
 		}
 		element = document.getElementById('reach');
@@ -235,7 +242,7 @@ function tumoTileClick(){
 		input_data = document.createElement("img");						//挿入するHTMLタグを決める
 	  	input_data.src = "/B5/img/ma-jan_back.png";						//属性と属性値を決める
 		input_data.alt = "back"
-		input_data.style = "height: 100%;"
+		input_data.className = "tile";
 	    input_data.id = "tumotileimg";
 
 	    parent = document.getElementById("tumotile");					//親を決める
@@ -250,7 +257,7 @@ function tumoTileClick(){
 		element.style.backgroundColor = "#F0F0F0;";
 
 		for(let i = 0;i<hands.length;i++){
-			let element = document.getElementById('tehai'+i);
+			element = document.getElementById('tehai'+i);
 			element.style.backgroundColor = "#F0F0F0";
 		}
 		element = document.getElementById('reach');
@@ -336,8 +343,8 @@ function sort_hands(){
 		else{
 			input_data.src = "/B5/img/ma-jan_back.png";
 		}
-		input_data.alt = exchangeTileId(hands[i])
-		input_data.style = "height: 100%;"
+		input_data.alt = exchangeTileId(hands[i]);
+		input_data.className = "tile";
 	  	input_data.id = "tehai"+ i +"img";
 
 	  	let parent = document.getElementById("tehai"+i);				//親を決める
@@ -750,7 +757,6 @@ function hantei14(){
 			input_data = document.createElement("img");						//挿入するHTMLタグを決める
 	  		input_data.src = "/B5/img/ma-jan_"+exchangeTileId(tmp)+".png";						//属性と属性値を決める
 			input_data.alt = "exchangeTileId(tmp)"
-			input_data.style = "height: 100%;"
 	      	input_data.id = "waiting_tile"+i;
 
 	      	parent = document.getElementById("waiting_tiles");					//親を決める
@@ -773,11 +779,11 @@ function hantei14(){
 	for(let tmp of tenpai_hand){
 		if(tmp===hands.length){
 			let element = document.getElementById('tumotile');
-			element.style.backgroundColor = "#FFFFEE;";
+			element.style.backgroundColor = "#FFFF00;";
 		}
 		else{
 			let element = document.getElementById('tehai'+tmp);
-			element.style.backgroundColor = "#FFFFEE";
+			element.style.backgroundColor = "#FFFF00";
 		}
 		//console.log(tmp);
 	}
