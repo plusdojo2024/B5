@@ -13,9 +13,9 @@ import model.Historys;
 public class HistorysDAO {
 
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<Historys> select(int userId) {
+	public List<Historys> select() {
 		Connection conn = null;//おまじない
-		List<Historys> hislist = new ArrayList<Historys>();//入れ物
+		List<Historys> hisList = new ArrayList<Historys>();//入れ物
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -26,10 +26,10 @@ public class HistorysDAO {
 
 
 			// データベースに接続する
-			String sql = "SELECT * FROM historys WHERE user_id = ? ORDER BY id DESC";
+			String sql = "SELECT * FROM historys ORDER BY id ASC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setInt(1, userId);
+
 
 
 			ResultSet rs = pStmt.executeQuery();
@@ -44,16 +44,16 @@ public class HistorysDAO {
 				rs.getInt("people")
 				);
 
-			hislist.add(record);
+			hisList.add(record);
 	}
 		}
 	catch (SQLException e) {
 		e.printStackTrace();
-		hislist = null;
+		hisList = null;
 	}
 	catch (ClassNotFoundException e) {
 		e.printStackTrace();
-		hislist = null;
+		hisList = null;
 	}
 	finally {
 		// データベースを切断
@@ -63,11 +63,11 @@ public class HistorysDAO {
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				hislist = null;
+				hisList = null;
 			}
 		}
 	}
 // 結果を返す
-return hislist;
+return hisList;
 }
 }
