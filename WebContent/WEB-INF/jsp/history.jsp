@@ -8,12 +8,15 @@
 <html>
 <head>
   <meta charset="UTF-8">
-<link rel="stylesheet" href="/B5/css/History.css">
-<link rel="stylesheet" type="text/css" href="/B5/css/common.css">
+<link rel="stylesheet" href="/B5/css/history.css">
 </head>
 <body>
 
-    <header class="header">
+    <header>
+    </header>
+    <main>
+    <h1 class="h1">対戦履歴一覧</h1>
+<div class="header">
       <!-- ヘッダーロゴ -->
       <div class="logo"></div>
 
@@ -29,67 +32,56 @@
         <!-- メニュー -->
         <nav class="nav_content">
           <ul class="nav_list">
-            <li class="nav_item"><a href="">メニュー1</a></li>
-            <li class="nav_item"><a href="">メニュー2</a></li>
-            <li class="nav_item"><a href="">メニュー3</a></li>
+            <li class="nav_item"><a href="HomeServlet">ホームへ</a></li>
+            <li class="nav_item"><a href="MypageServlet">マイページ</a></li>
+            <li class="nav_item"><a href="RuleServlet">ルール</a></li>
+            <li class="nav_item"><a href="MainServlet">対局開始画面</a></li>
           </ul>
         </nav>
-
+        </div>
       </div>
-    </header>
-    <main>
-    <h1 class="his">対戦履歴一覧</h1>
-
-	<div class="container">
-	<c:forEach var="e" items="${hisList}">
-      	<p class="date">対戦日時 ${e.matchDay}</p><br>
+           	<c:forEach var="h" items="${hisList}">
+      	<div class="container">
+      	<p class="date"> <strong>対局日時${h.matchDay}</strong></p>
  		<div class="user">
   			<table>
     		<tr>
-      			<td><h2 class="rank">${e.rank }位</h2></td>
-      			<td><h2 class="point">${e.point }点</h2></td>
+      			<th><h2 class="rank">${h.rank }位</h2></th>
+      			<th><h2 class="point">${h.point }点</h2></th>
      		</tr>
   			</table>
 		</div>
-		<div class="ranking">
-		<table style="margin-left:700px;">
-			<tr>
-			<th>順位${e.rank }位</th>
-			<th>名前${e.userId }</th>
-			</tr>
 
+		<div class="ranking">
+
+		<table style="margin-left:750px;" >
+		<tr>
+		<th>順位</th>
+		<th>名前</th>
+		</tr>
+			<tr>
+
+			<td>${h.rank }</td>
+			<td>${h.userId }</td>
+
+			</tr>
 		<c:forEach var="o" items="${oppList}">
 
 			<tr>
-			<th>２${o.rank}位</th>
-			<th>名前${o.name}</th>
-			</tr>
-
-			<tr>
-			<th>３${o.rank}位</th>
-			<th>名前${o.name}</th>
-			</tr>
-
-			<tr>
-			<th>4${o.rank}位</th>
-			<th>名前${o.name}</th>
+			<td>${o.rank}</td>
+			<td>${o.name}</td>
 			</tr>
 
 		</c:forEach>
-
 		</table>
 		</div>
 
+		<!-- <button onclick="location.href='HistoryDetailsServlet'"><b>詳細</b></button>-->
 
-	</c:forEach>
-
-	<input type="submit" name="submit" value="詳細">
-
-	</div>
-
+ 		</div>
+</c:forEach>
 </main>
 
 
 </body>
 </html>
-
