@@ -84,6 +84,7 @@
 /* メニュー黒ポチを消す */
 .nav_list {
   list-style: none;
+  font-size: 40px;
 }
 
 /* アイコンがクリックされたらメニューを表示 */
@@ -97,10 +98,11 @@
 .container{
   background: #d9f2d0;
   width: 1050px;
-  height: 300px;
+  height: 350px;
   border-radius: 50px;
   margin:10px auto;
   border-color: #000000;
+  box-shadow:5px 5px 3px #CCC;
 }
 
 html {
@@ -117,6 +119,10 @@ html {
   font-size: 25px;
 }
 
+.under {
+	border-bottom: 1px solid #000;
+}
+
 .date {
   text-align: left;
   text-indent: 30px;
@@ -130,7 +136,7 @@ html {
 
 .button {
   padding: 1px;
-  width: 10em;
+  width: 15em;
   height: 3em;
   font-size: 30px;
   background: #f63;
@@ -166,4 +172,15 @@ html {
 }
 .yuser {
 	color: #f63;
+}
+
+button {
+	background-color:#fff;
+	border-radius:20px;
+	background-color: #f63;
+	font-size: 40px;
+	width: 200px
+}
+.botan {
+	margin: -25px;
 }
