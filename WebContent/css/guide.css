@@ -34,8 +34,8 @@ body {
 
 
 .g-menu__link {
-  display: block;/* ポイント！！ */
-  padding: 20px 40px;/* ポイント！！ */
+  display: block;
+  padding: 20px 40px;
   font-size: 16px;
   line-height: 1.5;
   color: #000;
@@ -48,10 +48,10 @@ body {
 }
 
 .g-menu__dropdown-menu {
-  opacity: 0;/* ポイント！！ */
-  pointer-events: none;/* ポイント！！ */
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
-  top: 100%;/* ポイント！！ */
+  top: 100%;
   left: 0;
   background: #66cc66;
   width: 100%;
@@ -60,9 +60,7 @@ body {
 .g-menu__dropdown-menu-item {
   border-bottom: 1px solid white;
 }
-.g-menu__dropdown-menu-item:last-child {
-  border-width: 0;
-}
+
 
 .g-menu__dropdown-menu-link {
   display: block;
@@ -104,43 +102,10 @@ display: none; /* 標準スタイル */
 display: none; /* 標準スタイル */
 }
 
-/*以下タブエリア用↓↓*/
-
-/* コンテンツ */
-.tab-content-item {
-  /* コンテンツは非表示にしておく */
-  display: none;
-  /* パディング */
-  padding: auto;
-  /* コンテンツに収まらない場合は非表示 */
-  overflow: visible;
-}
-#main_content {
-/* 	display:none; */
-}
-
-#tabContent01 {
-/* 	position:relative;
-	Z-index:5; */
-}
-/* ラジオボタンがチェックされたら、コンテンツを表示 */
-#rule:checked ~ #tabContent01,
-#start:checked ~ #tabContent02,
-#pai:checked ~ #tabContent03,
-#han:checked ~ #tabContent04{
-  display: block;
-}
-
-/* コンテンツのPタグ */
-.tab-content-item p {
-  padding-bottom: 1em;
-}
-
- #mahajan, #kanseikei, #rontotsumo, #reach, #naki,#naki,#dora,#uradora,#tensuu,#siaisuu,#yaku,#basho,#oya,#painookikata,#dorahyoujihai,
- #manzu,#pinzu,#souzu,#kazehai,#sangenpai,#akadora,#1han,#2han,#356han,#yakuman {
- border: none;
+#1han {
+	 border: none;
   background: transparent;
- }
+}
 
  #mahajan,#kanseikei, #rontotsumo,#reach, #naki,#naki,#dora,#uradora,#huriten,#tensuu,#siaisuu,#yaku{
  border: none;
@@ -156,7 +121,3 @@ display: none; /* 標準スタイル */
   background: transparent;
  }
 
- #1han,#2han,#356han,#yakuman{
-border: none;
- background: transparent;
- }
