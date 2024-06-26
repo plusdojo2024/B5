@@ -99,7 +99,7 @@ html{
 
 .buttons{
 	position: fixed;
-	height:10%;
+	height:8%;
 	width:100%;
 	bottom:20%;
 	left:10px;
@@ -108,13 +108,22 @@ html{
 .button{
 	float: left;
 	height:100%;
+	width:4rem;
 	margin:1%;
 }
 
 #waiting_tiles{
+	display: none;
 	position: fixed;
+	min-width:10%;
 	bottom:20%;
 	right:10px;
+	text-align:center;
+	background-color:#66CC66;
+	padding: 1%;
+}
+#waiting_tiles p{
+	margin:0;
 }
 
 #doraText{
@@ -136,4 +145,18 @@ html{
 	top:40%;
 	right:10px;
 	text-align:center;
+	background-color:#66CC66;
+}
+
+#ron{
+	display: none;
+	position: fixed;
+	top:40%;
+	right:10px;
+	text-align:center;
+	background-color:#66CC66;
+}
+
+#hands,#lastHands,#result,#doras,#uraDoras,#yakus,#han,#fu,#point,#title{
+	display:none;
 }
