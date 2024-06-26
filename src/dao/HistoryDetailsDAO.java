@@ -14,9 +14,9 @@ import model.HistoryDetails;
 
 public class HistoryDetailsDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<HistoryDetails> select(HistoryDetails HD) {
+	public List<HistoryDetails> select(int historyId) {
 		Connection conn = null;//おまじない
-		List<HistoryDetails> list = new ArrayList<HistoryDetails>();//入れ物
+		List<HistoryDetails> HDlist = new ArrayList<HistoryDetails>();//入れ物
 
 		try {
 			// JDBCドライバを読み込む
@@ -28,11 +28,10 @@ public class HistoryDetailsDAO {
 			//ユーザーIDを取得する
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM history_details WHERE user_id = ? AND history_id = ? ORDER BY id DESC";
+			String sql = "SELECT * FROM history_details WHERE history_id = ? ORDER BY id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);//おまじない
 			// SQL文を完成させる
-				pStmt.setInt(1,HD.getUserId());
-				pStmt.setInt(2,HD.getHistoryId());
+				pStmt.setInt(1,historyId);
 
 
 
@@ -55,16 +54,16 @@ public class HistoryDetailsDAO {
 				rs.getInt("result"),
 				rs.getInt("title")
 				);
-				list.add(record);
+				HDlist.add(record);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			list = null;
+			HDlist = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			list = null;
+			HDlist = null;
 		}
 		finally {
 			// データベースを切断
@@ -74,13 +73,13 @@ public class HistoryDetailsDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					list = null;
+					HDlist = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return list;
+		return HDlist;
 	}
 
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
