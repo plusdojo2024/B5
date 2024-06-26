@@ -1,1 +1,50 @@
-﻿
+﻿body {
+text-align: center
+}
+label {
+    display: inline-block;
+    width: 100px;
+}
+#signup_form{
+  margin-top:50px;
+}
+input {
+  padding: 8px 10px;
+  font-size: 16px;
+  margin:10px;
+}
+input[type="text"] {
+  outline-color: #FFAD90;
+  border:none;
+  border-bottom:solid 2px #FF6633;
+  width:250px;
+}
+input[type="password"]{
+  outline-color:#FFAD90;
+  border:none;
+  border-bottom:solid 2px #FF6633;
+  width:250px;
+}
+input[type="submit"]{
+  margin-top:30px;
+  margin-bottom:90px;
+  border:solid 2px #FF6633;
+  background-color:#fff;
+  width:180px;
+}
+.new:hover{
+  background-color:#FFDBC9;
+}
+span{
+  color:#FF6633;
+  margin-bottom:20px;
+}
+a{
+  border-bottom:solid 1px ;
+  padding:0px 5px;
+  text-decoration:none;
+  color:#007700;
+}
+a:hover{
+  color:#66CC66;
+}

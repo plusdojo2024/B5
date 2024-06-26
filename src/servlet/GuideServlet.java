@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Guide
  */
-@WebServlet("/Guide")
+@WebServlet("/GuideServlet")
 public class GuideServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,6 +28,9 @@ public class GuideServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+		//ページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/guide.jsp");
 		dispatcher.forward(request, response);
 	}

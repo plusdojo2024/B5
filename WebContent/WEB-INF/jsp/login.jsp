@@ -12,16 +12,18 @@
 <h1>らく雀</h1>
 
 <form id="login_form" method="post" action="/B5/LoginServlet">
-<label>ID</label>
-    <input type="text" name="userid"><br>
-  <label>パスワード</label>
-    <input type="password" name="password"><br>
+<label>ID:</label>
+    <input class="id" type="text" name="userid"><br>
+  <label>パスワード:</label>
+    <input class="id" type="password" name="password"><br>
   <br>
   <input class="new" type="submit" name="submit" value="ログイン"><br>
-  <span id="error_message"></span>
+  <span id="error_message"></span><br>
+  <a href="/B5/SignupServlet" class="entry">新規登録</a>
 </form>
 
-<a href="/B5/SignupServlet">新規登録</a>
+
+
 </body>
 <script>
 'use strict';

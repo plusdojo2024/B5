@@ -35,8 +35,7 @@ public class MypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-//		String userid = (String)session.getAttribute("userid");
-		String userid="yumeka";
+		String userid = (String)session.getAttribute("userid");
 		Mypages mp = new Mypages();
 		MypageDAO md = new MypageDAO();
 		List<Mypages> list =md.select(userid);
