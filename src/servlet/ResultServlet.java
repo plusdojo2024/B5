@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.TilesDAO;
+import dao.YakusDAO;
 import model.Tiles;
+import model.Yakus;
 
 /**
  * Servlet implementation class ResultServlet
@@ -109,11 +111,20 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("uraDoras", udr);
 
 
-		List<String> ee = new ArrayList<String>(); //テスト用で記載(本来はなし)
-		ee.add("白");
-		ee.add("リーチ");
+		int[] ee  ={1,2,4};//テスト用で記載(本来はなし)
 		session.setAttribute("yakus", ee);//テスト用で記載(本来はなし)
 
+		//役を取得
+		int[] yakus = (int[]) session.getAttribute("yakus");
+
+		String[] yk = new String[yakus.length];
+		YakusDAO YDAO = new YakusDAO();
+		List<Yakus> list = new ArrayList<Yakus>();//入れ物
+		for (int i = 0; i < yakus.length; i++) {
+			list = YDAO.select(yakus[i]);
+			yk[i] = list.get(0).getYakuName();
+		}
+		request.setAttribute("yakus", yk);
 		//役が何かを取得
 //		List<Integer> yakus = (List<Integer>) session.getAttribute("yakus"); //スコープから受け取っているところ
 //
