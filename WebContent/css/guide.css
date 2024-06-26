@@ -121,3 +121,9 @@ display: none; /* 標準スタイル */
   background: transparent;
  }
 
+
+.footer{
+  position:absolute;
+	bottom:0;
+	width: 100%;
+}

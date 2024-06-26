@@ -133,6 +133,8 @@
 
 <script type="text/javascript" src="js/guide.js" defer> </script>
  </body>
-
+<footer>
+<img class="footer" src="img/footer.png">
+</footer>
 
 </html>
