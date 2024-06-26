@@ -28,9 +28,15 @@ pushBtn("kazehai","img/kazehai.png")
 pushBtn("sangenpai","img/jihai.png")
 pushBtn("akadora","img/akadora.png")
 pushBtn("1han","img/1.png")
-pushBtn("2han","img/2.png")
-pushBtn("345han","img/3.png")
-pushBtn("yakuman","img/yakuman.png")
+pushBtn("11han","img/11.png")
+pushBtn("2han","img/21.png")
+pushBtn("22han","img/22.png")
+pushBtn("23han","img/23.png")
+pushBtn("356han","img/356.png")
+pushBtn("yakuman","img/yakuman1.png")
+pushBtn("yakuman2","img/yakuman2.png")
+pushBtn("yakuman3","img/yakuman3.png")
+pushBtn("yakuman4","img/yakuman4.png")
 
 
 

@@ -53,7 +53,6 @@
           </li>
             <li class="g-menu__item">
             <input type="radio" name="tabset" id="start" ><label for="start"  class="g-menu__link">始め方</label>
-
             <ul class="g-menu__dropdown-menu">
               <li class="g-menu__dropdown-menu-item">
                <button id="basho" class="g-menu__dropdown-menu-link">場所の決め方</button>
@@ -96,17 +95,35 @@
             <input type="radio" name="tabset" id="han"><label for="han"  class="g-menu__link">役の種類</label>
             <ul class="g-menu__dropdown-menu">
               <li class="g-menu__dropdown-menu-item">
-                <button id="1han" class="g-menu__dropdown-menu-link">1翻役</button>
+                <button id="1han" class="g-menu__dropdown-menu-link">1翻役①</button>
+               </li>
+               <li class="g-menu__dropdown-menu-item">
+                <button id="11han" class="g-menu__dropdown-menu-link">1翻役②</button>
                </li>
               <li class="g-menu__dropdown-menu-item">
-                <button id="2han" class="g-menu__dropdown-menu-link">2翻役</button>
+                <button id="2han" class="g-menu__dropdown-menu-link">2翻役①</button>
               </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="22han" class="g-menu__dropdown-menu-link">2翻役②</button>
+               </li>
+               <li class="g-menu__dropdown-menu-item">
+                <button id="23han" class="g-menu__dropdown-menu-link">2翻役③</button>
+               </li>
               <li class="g-menu__dropdown-menu-item">
                 <button id="356han" class="g-menu__dropdown-menu-link">3/5/6翻役</button>
               </li>
               <li class="g-menu__dropdown-menu-item">
-                <button id="yakuman" class="g-menu__dropdown-menu-link">役満/ダブル役満</button>
+                <button id="yakuman" class="g-menu__dropdown-menu-link">役満/ダブル役満①</button>
               </li>
+              <li class="g-menu__dropdown-menu-item">
+                <button id="yakuman2" class="g-menu__dropdown-menu-link">役満/ダブル役満②</button>
+               </li>
+               <li class="g-menu__dropdown-menu-item">
+                <button id="yakuman3" class="g-menu__dropdown-menu-link">役満/ダブル役満③</button>
+               </li>
+               <li class="g-menu__dropdown-menu-item">
+                <button id="yakuman4" class="g-menu__dropdown-menu-link">役満/ダブル役満④</button>
+               </li>
             </ul>
           </li>
         </ul>

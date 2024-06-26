@@ -13,7 +13,7 @@ import model.Opponents;
 public class OpponentsDAO {
 
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-		public List<Opponents> select(int historyId) {
+		public List<Opponents> select() {
 			Connection conn = null;
 			List<Opponents> oppList = new ArrayList<Opponents>();
 
@@ -25,11 +25,11 @@ public class OpponentsDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/B5", "sa", "");
 
 				// SQL文を準備する
-				String sql = "SELECT * FROM opponents WHERE history_id = ? ORDER BY id ASC";
+				String sql = "SELECT * FROM opponents ORDER BY id ASC";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
-				pStmt.setInt(1, historyId);
+
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();

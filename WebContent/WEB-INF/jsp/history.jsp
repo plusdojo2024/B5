@@ -17,19 +17,15 @@
     <main>
     <h1 class="h1">対戦履歴一覧</h1>
 <div class="header">
-      <!-- ヘッダーロゴ -->
+
       <div class="logo"></div>
 
-      <!-- ハンバーガーメニュー部分 -->
       <div class="nav">
 
-        <!-- ハンバーガーメニューの表示・非表示を切り替えるチェックボックス -->
         <input id="drawer_input" class="drawer_hidden" type="checkbox">
 
-        <!-- ハンバーガーアイコン -->
         <label for="drawer_input" class="drawer_open"><span></span></label>
 
-        <!-- メニュー -->
         <nav class="nav_content">
           <ul class="nav_list">
             <li class="nav_item"><a href="HomeServlet">ホームへ</a></li>
@@ -42,7 +38,7 @@
       </div>
            	<c:forEach var="h" items="${hisList}">
       	<div class="container">
-      	<p class="date"> <strong>対局日時${h.matchDay}</strong></p>
+      	<p class="date"> <strong>対局日時:${h.matchDay}</strong></p>
  		<div class="user">
   			<table>
     		<tr>
@@ -55,29 +51,33 @@
 		<div class="ranking">
 
 		<table style="margin-left:750px;" >
-		<tr>
-		<th>順位</th>
-		<th>名前</th>
+		<tr class="unser">
+		<th><strong>順位</strong></th>
+		<th><strong>&nbsp;名前&nbsp;</strong></th>
+		<th><strong>&nbsp;ポイント</strong></th>
 		</tr>
-			<tr>
 
-			<td>${h.rank }</td>
-			<td>${h.userId }</td>
+			<tr class="yuser">
+
+			<td><strong>${h.rank }</strong></td>
+			<td><strong>${h.userId }</strong></td>
+			<td><strong>${h.point }</strong></td>
 
 			</tr>
 		<c:forEach var="o" items="${oppList}">
 
 			<tr>
 			<td>${o.rank}</td>
-			<td>${o.name}</td>
+			<td>&nbsp;${o.name}&nbsp;</td>
+			<td>&nbsp;${o.point }</td>
 			</tr>
 
 		</c:forEach>
 		</table>
 		</div>
-
-		<!-- <button onclick="location.href='HistoryDetailsServlet'"><b>詳細</b></button>-->
-
+<nav class="botan">
+<a href="/B5/HistoryDetailsServlet"><button style="margin-bottom:20px;">詳細</button></a>
+</nav>
  		</div>
 </c:forEach>
 </main>
