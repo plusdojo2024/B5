@@ -47,6 +47,12 @@ public class HistoryServlet extends HttpServlet {
 
 	OpponentsDAO ODao = new OpponentsDAO();
 	int history_id = 1;
+	//int rank = null;
+	//for (int i = 1; i < rank.length ; rank++) {
+	//rank[i];
+	//	if (rank == 3) {
+		//break;
+	//}
 	List<Opponents> oppList = ODao.select(history_id);
 	request.setAttribute("oppList", oppList);
 
