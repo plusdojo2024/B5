@@ -1,7 +1,10 @@
 @charset "UTF-8";
-.tehai-kekka{
+
+.tehai{
 	display:inline;
 }
+
+
 
 .doras{
 	display:inline;
@@ -18,6 +21,36 @@
 }
 .grid{
 	display:grid;
-	grid-template-columns:0.1fr 0.2fr 0.1fr 0.2fr 0.1fr 0.2fr;
-	grid-template-rows:5px 5px 5px 5px 5px 5px;
+	grid-template-columns:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+	grid-template-rows:50px 50px ;
+}
+.grid__item{
+	font-size:22px;
+}
+.grid__item2{
+	font-size:22px;
+	color:green;
+}
+
+.han-fu{
+	color:green;
+	position: relative;
+	left:750px;
+	top:20px;
+	font-size:30px;
+
+}
+
+
+.under_line{
+	text-decoration: underline 5px #FF6633;
+}
+
+.point{
+	position: relative;
+	bottom:200px;
+	left:750px;
+	color:#FF6633;
+	font-size:35px;
+
 }
