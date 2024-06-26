@@ -9,7 +9,7 @@
 <title>らく雀 | 新規登録</title>
 </head>
 <body>
-<h1>らく雀</h1>
+<div><img src="/B5/img/rakujan2.png"></div>
 
 <form id="signup_form" method="post" action="/B5/SignupServlet">
 <h3>新規登録</h3>

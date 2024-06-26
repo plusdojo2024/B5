@@ -9,7 +9,7 @@
 <title>らく雀 ログイン</title>
 </head>
 <body>
-<h1>らく雀</h1>
+<div><img src="/B5/img/rakujan.png"></div>
 
 <form id="login_form" method="post" action="/B5/LoginServlet">
 <label>ID:</label>

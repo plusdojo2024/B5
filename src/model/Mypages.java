@@ -7,14 +7,14 @@ public class Mypages {
 	private String word;
 	private String likeyaku;
 	private String record;
-	private int image;
+	private String image;
 	private String lastlogin;
 	private String createdat;
 	private String updatedat;
 	public Mypages() {
 
 	}
-	public Mypages(int id, String userid, String name, String word, String likeyaku, String record, int image,
+	public Mypages(int id, String userid, String name, String word, String likeyaku, String record, String image,
 			String lastlogin, String createdat, String updatedat) {
 		super();
 		this.id = id;
@@ -64,10 +64,10 @@ public class Mypages {
 	public void setRecord(String record) {
 		this.record = record;
 	}
-	public int getImage() {
+	public String getImage() {
 		return image;
 	}
-	public void setImage(int image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 	public String getLastlogin() {

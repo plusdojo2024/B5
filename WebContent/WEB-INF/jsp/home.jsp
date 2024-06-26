@@ -9,7 +9,7 @@
 <title>ホーム | らく雀</title>
 </head>
 <body>
-<h1>らく雀</h1>
+<div><img src="/B5/img/rakujan.png"></div>
 <a href="/B5/MainServlet"><button class="start">対局開始</button></a><br>
 
 <a href="/B5/RuleServlet"><button class="guide" type="button">麻雀ガイド</button></a>
