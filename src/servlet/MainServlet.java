@@ -50,7 +50,44 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		request.setCharacterEncoding("UTF-8");
+		int[] hands = new int[13];
+		for(int i = 0;i<13;i++) {
+			hands[i] = Integer.parseInt(request.getParameter("hands["+i+"]"))+1;
+		}
+		int lastHands = Integer.parseInt(request.getParameter("lastHands"))+1;
+		int result = Integer.parseInt(request.getParameter("lastHands"));
+		int[] doras = new int[5];
+		for(int i = 0;i<5;i++) {
+			doras[i] = Integer.parseInt(request.getParameter("doras["+i+"]"))+1;
+		}
+		int[] uraDoras = new int[5];
+		for(int i = 0;i<5;i++) {
+			uraDoras[i] = Integer.parseInt(request.getParameter("uraDoras["+i+"]"))+1;
+		}
+		int yakusNum = Integer.parseInt(request.getParameter("yakusNum"));
+		int[] yakus = new int[yakusNum];
+		for(int i = 0;i<yakusNum;i++) {
+			yakus[i] = Integer.parseInt(request.getParameter("yakus["+i+"]"));
+		}
+		int han = Integer.parseInt(request.getParameter("han"));
+		int fu = Integer.parseInt(request.getParameter("fu"));
+		int point = Integer.parseInt(request.getParameter("point"));
+		int title = Integer.parseInt(request.getParameter("title"));
 
+		session.setAttribute("hands", hands);
+		session.setAttribute("lastHands", lastHands);
+		session.setAttribute("result", result);
+		session.setAttribute("Doras", doras);
+		session.setAttribute("uraDoras", uraDoras);
+		session.setAttribute("yakus", yakus);
+		session.setAttribute("han", han);
+		session.setAttribute("fu", fu);
+		session.setAttribute("point", point);
+		session.setAttribute("title", title);
+
+		response.sendRedirect("/B5/ResultServlet");
 	}
 
 }
