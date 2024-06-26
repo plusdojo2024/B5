@@ -193,6 +193,14 @@
 	<button type = "button" onclick = "ponDecision()">決定</button>
 </div>
 
+<div id = "ron">
+	<p>ロンする牌を選んでください</p>
+	<img src="/B5/img/ma-jan_back.png" alt="back" style="height: 44px;" id = "ronTile">
+	<form method="post" id = "ronForm"action="/B5/MainServlet">
+	<input type = "submit" value="決定">
+	</form>
+</div>
+
 <!--
 <div id = "chi">
 	<p>ポンする牌を選んでください</p>
@@ -206,9 +214,9 @@
 
 <div class = "buttons">
 	<button type = "button" class = "button">1つ戻る</button>
-	<button type = "button" class = "button" style = "display: none" id = "tsumo" onclick="resultClick(this)">ツモ</button>
-	<button type = "button" class = "button" style = "display: none" id = "ron" onclick="resultClick(this)">ロン</button>
-	<button type = "button" class = "button" style = "display: none" id = "reach" onclick="reachClick()">リーチ</button>
+	<button type = "button" class = "button" style = "display: none" id = "tsumoButton" onclick="resultClick(this)">ツモ</button>
+	<button type = "button" class = "button" style = "display: none" id = "ronButton" onclick="resultClick(this)">ロン</button>
+	<button type = "button" class = "button" style = "display: none" id = "reachButton" onclick="reachClick()">リーチ</button>
 	<button type = "button" class = "button">カン</button>
 	<button type = "button" class = "button" onclick="ponClick()">ポン</button>
 	<button type = "button" class = "button" onclick="chiClick()">チー</button>
