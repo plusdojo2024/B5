@@ -125,17 +125,38 @@ function tilesClick(tile){
 				agari();
 				let parent = document.getElementById("ronForm");
 				for(let i =0;i<hands.length-1;i++){
+					let num = hands[i];
+					if(hands[i] > 4 && hands[i] <15){
+						num = hands[i]-1;
+					}
+					else if(hands[i] >14 && hands[i] <25){
+						num = hands[i]-2;
+					}
+					else if(hands[i] >24){
+						num = hands[i]-3;
+					}
+
 					let input_data = document.createElement("input");						//挿入するHTMLタグを決める
 	  				input_data.type = "text";				//属性と属性値を決める
 					input_data.name = "hands["+i+"]";
-					input_data.value = hands[i];
+					input_data.value = num;
 					input_data.style.display="none";
 					parent.appendChild(input_data);
 				}
 				let input_data = document.createElement("input");						//挿入するHTMLタグを決める
   				input_data.type = "text";				//属性と属性値を決める
 				input_data.name = "lastHands";
-				input_data.value = tileNum;
+				let num = tileNum;
+				if(tileNum && tileNum <15){
+					num = tileNum-1;
+				}
+				else if(tileNum >14 && tileNum <25){
+					num = tileNum-2;
+				}
+				else if(tileNum >24){
+					num = tileNum-3;
+				}
+				input_data.value = num;
 				input_data.style.display="none";
 				parent.appendChild(input_data);
 
@@ -1198,7 +1219,7 @@ function agari(){
 	    		}
 	    	}
 	    	if(num===4){
-	    		yakus[i].push(41);
+	    		yakus[i].push(42);
 	    		han[i]+=1;
 	    	}
 	    }
@@ -1433,7 +1454,7 @@ function agari(){
 		    if(tmp.length===5){
 		    	let num = 0;
 		    	for(let tmp1 of tmp){
-		    		if(tmp1 === 1){
+		    		if(tmp1.length === 1){
 		    			num++;
 		    		}
 		    	}
@@ -1450,7 +1471,7 @@ function agari(){
 		    			nums.push(tmp[j][0]);
 		    		}
 		    	}
-		    	if(nums>=3){
+		    	if(nums.length>=3){
 		    		if(nums[0]+9===nums[1]&&nums[1]+9===nums[2]){
 		    			yakus[i].push(22);
 		    			han[i]+=2;
@@ -1518,6 +1539,9 @@ function agari(){
 						num++;
 						nums[2]+=1;
 		    		}
+		    		else{
+		    			num++
+		    		}
 		    	}for(let j = 0;j<3;j++){
 			    	if(num === nums[j]){
 			    		yakus[i].push(28);
@@ -1546,6 +1570,9 @@ function agari(){
 		    		else if((tmp1[0]>=18&&tmp1[0]<=26)){
 						num++;
 						nums[2]+=1;
+		    		}
+		    		else{
+		    			num++;
 		    		}
 		    	}
 		    	for(let j = 0;j<3;j++){

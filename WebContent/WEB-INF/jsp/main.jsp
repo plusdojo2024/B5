@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/B5/css/battle.css">
+<link rel="stylesheet" href="/B5/css/main.css">
+<link rel="stylesheet" href="/B5/css/common.css">
 <script src="/B5/js/main.js"></script>
 <title>メイン</title>
 

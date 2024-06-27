@@ -1,10 +1,13 @@
-@charset "UTF-8";
-.open {
-	cursor:pointer;
+html{
+	width:100vw;
+	height:100vw;
+	background:#FFFFEE;
+	border: 10px solid #FF6633;
 }
-#pop-up {
+.popup{
 	display: none;
 }
+
 .overlay {
 	display: block;
 	position: fixed;
@@ -16,9 +19,7 @@
 	background: rgba(0, 0, 0, 0.6);
 
 }
-#pop-up:checked + .overlay {
-        display: none;
-	}
+
 .window {
 	position: fixed;
 	top: 50%;
@@ -32,9 +33,134 @@
 	align-items: center;
 	transform: translate(-50%, -50%);
 }
-.close {
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	cursor:pointer;
+
+.tileButton{
+	max-height:19%;
+	max-width:10%;
+}
+
+.dorasTileButton{
+	width:18%;
+	max-height:100%;
+}
+
+.tehaiTileButton{
+	max-height:100%;
+	max-width:7%;
+}
+
+.tumohaiTileButton{
+	max-height:100%;
+}
+
+.tile{
+	max-height:90%;
+	max-width:90%;
+}
+
+.tiles{
+	background-color:#66CC66;
+	position: fixed;
+	width: 55%;
+	height:55%;
+	top:10px;
+	left:10px;
+	padding: 1%;
+}
+
+.doras{
+	background-color:#66CC66;
+	position: fixed;
+	width: 33%;
+	top:10px;
+	right:10px;
+	padding: 1%;
+}
+
+.tehai{
+	position: fixed;
+	width: 82%;
+	height:12%;
+	bottom:10px;
+	left:10px;
+	background-color:#66CC66;
+	padding: 1%;
+}
+
+.tumotile{
+	position: fixed;
+	height:12%;
+	width:6%;
+	bottom:10px;
+	right:10px;
+	background-color:#66CC66;
+	padding: 1%;
+}
+
+.buttons{
+	position: fixed;
+	height:8%;
+	width:100%;
+	bottom:20%;
+	left:10px;
+}
+
+.button{
+	float: left;
+	height:100%;
+	width:4rem;
+	margin:1%;
+}
+
+#waiting_tiles{
+	display: none;
+	position: fixed;
+	min-width:10%;
+	bottom:20%;
+	right:10px;
+	text-align:center;
+	background-color:#66CC66;
+	padding: 1%;
+}
+#waiting_tiles p{
+	margin:0;
+}
+
+#doraText{
+	position: fixed;
+	top:30%;
+	right:3.5%;
+	font-size:2rem;
+	background-color:#66CC66;
+}
+
+#registText{
+	display: none;
+	position: fixed;
+	top:30%;
+	right:3.5%;
+	font-size:2rem;
+	background-color:#66CC66;
+}
+
+#pon{
+	display: none;
+	position: fixed;
+	top:40%;
+	right:10px;
+	text-align:center;
+	background-color:#66CC66;
+}
+
+#ron{
+	display: none;
+	position: fixed;
+	top:40%;
+	right:10px;
+	text-align:center;
+	background-color:#66CC66;
+}
+
+#hands,#lastHands,#result,#doras,#uraDoras,#yakus,#han,#fu,#point,#title{
+	display:none;
 }
