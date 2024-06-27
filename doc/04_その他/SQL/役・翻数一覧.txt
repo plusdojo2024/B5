@@ -99,7 +99,7 @@ INSERT INTO yakus VALUES (
 
 INSERT INTO yakus VALUES (
   NULL,
-  'ëÑêœ',
+  'ëÑû»',
   '1',
   NULL,
   NULL
