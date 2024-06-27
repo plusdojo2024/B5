@@ -43,7 +43,7 @@ public class MypageDAO {
 					rs.getString("word"),
 					rs.getString("like_yaku"),
 					rs.getString("record"),
-					rs.getInt("image"),
+					rs.getString("image"),
 					rs.getString("last_login"),
 					rs.getString("created_at"),
 					rs.getString("updated_at")
@@ -99,7 +99,7 @@ public class MypageDAO {
 			pStmt.setString(3, MP.getWord());
 			pStmt.setString(4, MP.getLikeyaku());
 			pStmt.setString(5, MP.getRecord());
-			pStmt.setInt(6, MP.getImage());
+			pStmt.setString(6, MP.getImage());
 
 
 							// SQL文を実行する
@@ -151,7 +151,7 @@ public class MypageDAO {
 
 						pStmt.setString(3, card.getLikeyaku());
 
-						pStmt.setInt(4, card.getImage());
+						pStmt.setString(4, card.getImage());
 
 						pStmt.setInt(5, card.getId());
 

@@ -11,14 +11,9 @@
 <title>リザルト画面</title>
 </head>
 <body>
-<header>
-<h1 id="logo">
-<a href=""><img src="/B5/img/kekka-logo.png" width="198" height="147"></a>
-</h1>
-</header>
 <!-- 項目を表示 -->
-<div class ="tehai-kekka">
 <h2>手牌</h2>
+<div class="tehai">
 <c:if test="${empty hand}">
 	<p>一致するデータはありません。</p>
 </c:if>
@@ -26,7 +21,7 @@
 	<img src ="/B5/img/ma-jan_${e}.png">
 </c:forEach>
 <!-- ツモ、ロン -->
-<img src ="/B5/img/${result}.PNG" width="290" height="170">
+<img src ="/B5/img/${result}.PNG" width="200" height="140">
 <br>
 <p>&nbsp;</p>
 </div>
@@ -55,8 +50,8 @@
 <div class="grid">
 	<c:forEach var = "e" items="${yakus}">
 
-	<div class="grid__item">役：</div>
-	<div class="grid__item">${e}</div>
+	<div class="grid__item"><strong>役：</strong></div>
+	<div class="grid__item2"><strong>${e}</strong></div>
 
 	</c:forEach>
 </div>
@@ -66,9 +61,11 @@
 <div class ="han-fu">
 <h2>${han}飜 ${fu}付</h2>
 </div>
+<c:if test="${title!=''}">
 <img src ="/B5/img/${title}.PNG" width="290" height="170">
+</c:if>
 <div class ="point">
-<h2>点数：${point}点</h2>
+<h2><span class="under_line">点数：${point}点</span></h2>
 </div>
 <form method="post" action="/B5/GameServlet">
 <input type="submit" name="login" value="次へ">

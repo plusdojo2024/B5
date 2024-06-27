@@ -11,12 +11,16 @@
 </head>
 <body>
 
-
-  <form method="post" action="/B5/MypageServlet">
+<%
+	String filePath = (String)request.getAttribute("filePath");
+%>
+  <form method="post" action="/B5/MypageServlet" enctype="multipart/form-data" id="form">
    	<div class="button">
-	<img id="preview" accept="image/*"  src="/B5/img/profile.jpg" ><br>
-	<input type="file" name="image" id="form"
+	<img id="preview" accept="image/*"  src="${mypage.image}" alt="img"><br>
+	<input type="file" id="form" name="imageFile"
 	accept=".jpg, .jpeg, .png, .gif" onchange="previewFile(this);" >
+
+
 	</div><br>
 
 	<div class="user">
@@ -28,8 +32,8 @@
 	<input type="text" class="userid" name="word" value="${mypage.word}"><br>
 	<%-- <textarea rows="5" cols="15">${mypage.word}</textarea> --%>
 	<label>好きな役:</label>
-	<select name="likeyaku">
-		<option value="empty" ></option>
+	<select name="likeyaku" id="select">
+		<option value="empty"></option>
 		<option value="pinfu">平和(ピンフ)</option>
 		<option value="ipeco">一盃口(イーペーコー)</option>
 		<option value="sangenhai">三元牌</option>
@@ -70,18 +74,19 @@
 		<option value="daisusi">大四喜(ダイスーシー)</option>
 		<option value="junsei">純正九蓮宝燈(ジュンセイチューレンポートウ)</option>
 		<option value="sanmen">国士無双十三面待ち(コクシムソウジュウサンメンマチ)</option>
-	</select><br> <input type="submit" class="regist" value="更新"><br>
+	</select><br> <input type="submit" class="regist" value="更新" id="btn"><br>
 
-	    <input type="hidden" name ="image_data" value="${mypage.image}">
+	    <input type="hidden" id="yaku" name ="image_data" value="${mypage.image}">
 		<input type="hidden" name="id" value="${mypage.id}">
 		<input type="hidden" id="photo" name="photo" value="">
-
+		<input type="hidden" name="pinfu" value="${mypage.likeyaku}" id="pinfu">
 		<h4>戦績</h4>
-		<p>総対局数：${mypage.record}</p><br>
-		<p>勝利数：</p><br>
-		<p>勝率：</p><br>
+		<p>総対局数：10</p><br>
+		<p>勝利数：6</p><br>
+		<p>勝率：60%</p><br>
 	</div>
 	</form>
+
 </body>
 
 <footer>
@@ -90,6 +95,12 @@
 
   <script>
  'use strict';
+ let formObj = document.getElementById('form');
+ let MessageObj = document.getElementById('message');
+
+ /* [ログイン]ボタンをクリックしたときの処理 */
+
+
   function previewFile(hoge){
     var fileData = new FileReader();
     fileData.onload = (function() {
@@ -101,7 +112,140 @@
     fileData.readAsDataURL(hoge.files[0]);
   }
 
+ let LikeYaku = document.getElementById('select');
+ let Yaku = document.getElementById('yaku');
+ LikeYaku.options[exchange(Yaku.value)].selected = true;
+ LikeYaku.addEventListener('change',valueChange);
+ console.log(Yaku.value);
+ function exchange(yaku){
+	 switch(yaku){
+	 case "pinfu":
+		 return 1;
 
+	 case "ipeco":
+		 return 2;
+
+	 case "sangenhai":
+		 return 3;
+
+	 case "kazehai":
+		 return 4;
+
+	 case "chankan":
+		 return 5;
+
+	 case "kaihou":
+		 return 6;
+
+	 case "haitei":
+		 return 7;
+
+	 case "houtei":
+		 return 8;
+
+	 case "tii":
+		 return 9;
+
+	 case "renpu":
+		 return 10;
+
+	 case "toitoi":
+		 return 11;
+
+	 case "sanankou":
+		 return 12;
+
+	 case "doukou":
+		 return 13;
+
+	 case "doujun":
+		 return 14;
+
+	 case "honroutou":
+		 return 15;
+
+	 case "ikki":
+		 return 16;
+
+	 case "chanta":
+		 return 17;
+
+	 case "syousangen":
+		 return 18;
+
+	 case "sankantu":
+		 return 19;
+
+	 case "honiso":
+		 return 20;
+
+	 case "jun":
+		 return 21;
+
+	 case "ryan":
+		 return 22;
+
+	 case "nagasi":
+		 return 23;
+
+	 case "tiniso":
+		 return 24;
+
+	 case	"tenho":
+		 return 25;
+
+	 case "tiho":
+		 return 26;
+
+	 case "renho":
+		 return 27;
+
+	 case "ryuiso":
+		 return 28;
+
+	 case "daisangen":
+		 return 29;
+
+	 case "syoususi":
+		 return 30;
+
+	 case "tuiso":
+		 return 31;
+
+	 case "kokusi":
+		 return 32;
+
+	 case "churen":
+		 return 33;
+
+	 case "suankou":
+		 return 34;
+
+	 case "tinroutou":
+		 return 35;
+
+	 case "sukantu":
+		 return 36;
+
+	 case "tinroutou":
+		 return 37;
+
+	 case "sukantu":
+		 return 38;
+
+	 case  "tanki":
+		 return 39;
+
+	 case "daisusi":
+		 return 40;
+
+	 case "junsei":
+		 return 41;
+
+	 case "sanmen":
+	     return 42;
+	 }
+ }
   </script>
 
 

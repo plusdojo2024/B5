@@ -1,0 +1,36 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+1p');
+
+html {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+body{
+	text-align:center;
+	margin-top:160px;
+}
+
+button{
+	width:200px;
+	height:50px;
+	padding:6px 25px;
+	background-color:#fff;
+	border:solid 2px #FF6633;
+	border-radius: 50px;
+	font-size:20px;
+	font-family: 'M PLUS 1p', sans-serif;
+}
+
+button:hover{
+    border:solid 3.5px #FF6633;
+}
+h1{
+	text-shadow:3px 4px 3px #A4C6FF;
+	font-size:2.5rem;
+}
+h2{
+	text-shadow:3px 4px 3px #D9E5FF;
+	font-size:2rem;
+}
+.userid{
+	color:#FF570D;
+}

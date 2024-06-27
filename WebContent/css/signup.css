@@ -5,8 +5,10 @@ label {
     display: inline-block;
     width: 100px;
 }
-#signup_form{
-  margin-top:50px;
+
+img{
+	width:200px;
+    margin:30px;
 }
 input {
   padding: 8px 10px;

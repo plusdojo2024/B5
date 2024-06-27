@@ -185,6 +185,13 @@ function tilesClick(tile){
 
 				input_data = document.createElement("input");						//挿入するHTMLタグを決める
   				input_data.type = "text";				//属性と属性値を決める
+				input_data.name = "yakusNum";
+				input_data.value = yakus[0].length;
+				input_data.style.display="none";
+				parent.appendChild(input_data);
+
+				input_data = document.createElement("input");						//挿入するHTMLタグを決める
+  				input_data.type = "text";				//属性と属性値を決める
 				input_data.name = "han";
 				input_data.value = han[0];
 				input_data.style.display="none";
@@ -898,13 +905,13 @@ function hantei14(){
 
 		}
 	}
-	for(let i = 0;i<hands.length;i++){
-		if(i===hands.length-1){
+	for(let tmp of tenpai_hand){
+		if(tmp===hands.length-1){
 			let element = document.getElementById('tumotile');
 			element.style.backgroundColor = "#FFFF00;";
 		}
 		else{
-			let element = document.getElementById('tehai'+i);
+			let element = document.getElementById('tehai'+tmp);
 			element.style.backgroundColor = "#FFFF00";
 		}
 		//console.log(tmp);
@@ -1099,8 +1106,8 @@ function agari(){
 	    //大三元
 	    if(tmp.length===5){
 	    	let num = 0;
-	    	for(let i = 1;i<tmp.length;i++){
-	    		if(tmp[i][0]>=31&&tmp[i][0]<=33){
+	    	for(let j = 1;j<tmp.length;j++){
+	    		if(tmp[j][0]>=31&&tmp[j][0]<=33){
 	    			num ++;
 	    		}
 	    	}
@@ -1169,7 +1176,7 @@ function agari(){
 	    }
 	    //国士無双
 	    if(tmp.length===1){
-	    	if(tmp[0][0]===0){
+	    	if(tmp[0][0]=="k"){
 	    		yakus[i].push(39);
 	    		han[i]+=1;
 	    	}
@@ -1185,8 +1192,8 @@ function agari(){
 	    //大喜
 	    if(tmp.length===5){
 	    	let num = 0;
-	    	for(let i = 1;i<tmp.length;i++){
-	    		if(tmp[i][0]>=27&&tmp[i][0]<=30){
+	    	for(let j = 1;j<tmp.length;j++){
+	    		if(tmp[j][0]>=27&&tmp[j][0]<=30){
 	    			num ++;
 	    		}
 	    	}
@@ -1199,7 +1206,7 @@ function agari(){
 	    //純正九連宝燈
 	    //四暗刻単騎
 	    if(han[i]>0){
-	    	han[i] =+12;
+	    	han[i] +=12;
 	    }
 	    else{
 		    //リーチ
@@ -1220,8 +1227,8 @@ function agari(){
 		    //ピンフ
 		    if(tmp.length>=2&&!((wind ===0 && tmp[0][0]===27)||(wind ===1 && tmp[0][0]===28)||(wind ===2 && tmp[0][0]===29)||(wind ===3 && tmp[0][0]===30)||tmp[0][0]===31||tmp[0][0]===32||tmp[0][0]===33)){
 		    	let num = 0;
-		    	for(let i = 1;i<tmp.length;i++){
-		    		if(tmp[i].length===3){
+		    	for(let j = 1;j<tmp.length;j++){
+		    		if(tmp[j].length===3){
 		    			num++;
 		    		}
 		    	}
@@ -1255,8 +1262,8 @@ function agari(){
 		    }
 		    //白
 		    if(tmp.length>=2&&tmp.length<=5){
-		    	for(let i = 1;i < tmp.length;i++){
-		    		if(tmp[i][0]===31){
+		    	for(let j = 1;j < tmp.length;j++){
+		    		if(tmp[j][0]===31){
 		    			yakus[i].push(7);
 		    			han[i]+=1;
 		    		}
@@ -1264,8 +1271,8 @@ function agari(){
 		    }
 		    //発
 		    if(tmp.length>=2&&tmp.length<=5){
-		    	for(let i = 1;i < tmp.length;i++){
-		    		if(tmp[i][0]===32){
+		    	for(let j = 1;j < tmp.length;j++){
+		    		if(tmp[j][0]===32){
 		    			yakus[i].push(8);
 		    			han[i]+=1;
 		    		}
@@ -1273,8 +1280,8 @@ function agari(){
 		    }
 		    //中
 		    if(tmp.length>=2&&tmp.length<=5){
-		    	for(let i = 1;i < tmp.length;i++){
-		    		if(tmp[i][0]===33){
+		    	for(let j = 1;j < tmp.length;j++){
+		    		if(tmp[j][0]===33){
 		    			yakus[i].push(9);
 		    			han[i]+=1;
 		    		}
@@ -1282,20 +1289,20 @@ function agari(){
 		    }
 		    //場風牌
 		    if(tmp.length>=2&&tmp.length<=5){
-		    	for(let i = 1;i < tmp.length;i++){
-		    		if(wind ===0 && tmp[i][0]===27){
+		    	for(let j = 1;j < tmp.length;j++){
+		    		if(wind ===0 && tmp[j][0]===27){
 		    			yakus[i].push(10);
 		    			han[i]+=1;
 		    		}
-		    		if(wind ===1 && tmp[i][0]===28){
+		    		if(wind ===1 && tmp[j][0]===28){
 		    			yakus[i].push(10);
 		    			han[i]+=1;
 		    		}
-		    		if(wind ===2 && tmp[i][0]===29){
+		    		if(wind ===2 && tmp[j][0]===29){
 		    			yakus[i].push(10);
 		    			han[i]+=1;
 		    		}
-		    		if(wind ===3 && tmp[i][0]===30){
+		    		if(wind ===3 && tmp[j][0]===30){
 		    			yakus[i].push(10);
 		    			han[i]+=1;
 		    		}
@@ -1303,20 +1310,20 @@ function agari(){
 		    }
 		    //自風牌
 		    if(tmp.length>=2&&tmp.length<=5){
-		    	for(let i = 1;i < tmp.length;i++){
-		    		if(seatWind ===0 && tmp[i][0]===27){
+		    	for(let j = 1;j < tmp.length;j++){
+		    		if(seatWind ===0 && tmp[j][0]===27){
 		    			yakus[i].push(11);
 		    			han[i]+=1;
 		    		}
-		    		if(seatWind ===1 && tmp[i][0]===28){
+		    		if(seatWind ===1 && tmp[j][0]===28){
 		    			yakus[i].push(11);
 		    			han[i]+=1;
 		    		}
-		    		if(seatWind ===2 && tmp[i][0]===29){
+		    		if(seatWind ===2 && tmp[j][0]===29){
 		    			yakus[i].push(11);
 		    			han[i]+=1;
 		    		}
-		    		if(seatWind ===3 && tmp[i][0]===30){
+		    		if(seatWind ===3 && tmp[j][0]===30){
 		    			yakus[i].push(11);
 		    			han[i]+=1;
 		    		}
@@ -1381,9 +1388,9 @@ function agari(){
 		    //同順
 		    if(tmp.length===4||tmp.length===5){
 		    	let nums = [];
-		    	for(let i = 1;i<tmp.length;i++){
-		    		if(tmp[i].length===3){
-		    			nums.push(tmp[i][0]);
+		    	for(let j = 1;j<tmp.length;j++){
+		    		if(tmp[j].length===3){
+		    			nums.push(tmp[j][0]);
 		    		}
 		    	}
 		    	if(nums.length>3){
@@ -1402,10 +1409,10 @@ function agari(){
 		    //一気通貫
 		    if(tmp.length===4||tmp.length===5){
 		    	let nums = [];
-		    	for(let i = 1;i<tmp.length;i++){
-		    		if(tmp[i].length===3){
-		    			if(tmp[i][0]===0||tmp[i][0]===3||tmp[i][0]===6||tmp[i][0]===9||tmp[i][0]===12||tmp[i][0]===15||tmp[i][0]===18||tmp[i][0]===21||tmp[i][0]===24){
-							nums.push(tmp[i][0]);
+		    	for(let j = 1;j<tmp.length;j++){
+		    		if(tmp[j].length===3){
+		    			if(tmp[j][0]===0||tmp[j][0]===3||tmp[j][0]===6||tmp[j][0]===9||tmp[j][0]===12||tmp[j][0]===15||tmp[j][0]===18||tmp[j][0]===21||tmp[j][0]===24){
+							nums.push(tmp[j][0]);
 						}
 		    		}
 		    	}
@@ -1438,9 +1445,9 @@ function agari(){
 		    //同刻
 		    if(tmp.length===5){
 		    	let nums = [];
-		    	for(let i = 1;i<tmp.length;i++){
-		    		if(tmp[i].length===1){
-		    			nums.push(tmp[i][0]);
+		    	for(let j = 1;j<tmp.length;j++){
+		    		if(tmp[j].length===1){
+		    			nums.push(tmp[j][0]);
 		    		}
 		    	}
 		    	if(nums>=3){
@@ -1579,9 +1586,9 @@ function agari(){
     			hu[i] = 22;
     		}
 
-    		for(let i=1;i<tmp.length;i++){
-	    		if(tmp[i].length===1){
-	    			if((tmp[i][0]>=1&&tmp[i][0]<=7)||(tmp[i][0]>=10&&tmp[i][0]<=16)||(tmp[i][0]>=19&&tmp[i][0]<=25)){
+    		for(let j=1;j<tmp.length;j++){
+	    		if(tmp[j].length===1){
+	    			if((tmp[j][0]>=1&&tmp[j][0]<=7)||(tmp[j][0]>=10&&tmp[j][0]<=16)||(tmp[j][0]>=19&&tmp[j][0]<=25)){
 	    				hu[i]+=4;
 	    			}
 	    			else{
@@ -1609,6 +1616,7 @@ function agari(){
 	    			}
 	    		}
     		}
+
     	}
     	if(seatWind ===0){
     		if(han[i]>=13){

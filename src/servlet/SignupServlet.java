@@ -57,7 +57,7 @@ public class SignupServlet extends HttpServlet {
 		UsersDAO uDao = new UsersDAO();
 		if (uDao.insert(new Users(userid, password))) {	// 登録成功
 			MypageDAO mDao = new MypageDAO();
-			Mypages mp = new Mypages(0, userid, "ゲスト",  "よろしくお願いします。", "未設定", "未設定", 0,"未設定","未設定", "未設定");
+			Mypages mp = new Mypages(0, userid, "ゲスト",  "よろしくお願いします。", "未設定", "未設定", "/B5/img/profile.jpg","未設定","未設定", "未設定");
 			mDao.insert(mp);
 			response.sendRedirect("/B5/WelcomeServlet");
 			return;
