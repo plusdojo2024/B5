@@ -59,16 +59,18 @@
 
 <!-- 飜の表示 -->
 <div class ="han-fu">
-<h2>${han}飜 ${fu}付</h2>
+<h2>役の飜：${han}飜 ${fu}付</h2>
 </div>
+<div class ="title">
 <c:if test="${title!=''}">
 <img src ="/B5/img/${title}.PNG" width="290" height="170">
 </c:if>
+</div>
 <div class ="point">
 <h2><span class="under_line">点数：${point}点</span></h2>
 </div>
 <form method="post" action="/B5/GameServlet">
-<input type="submit" name="login" value="次へ">
+<input type="submit" name="next" value="次へ" class ="submit">
 </form>
 </body>
 </html>

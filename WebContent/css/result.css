@@ -21,7 +21,7 @@
 }
 .grid{
 	display:grid;
-	grid-template-columns:0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+	grid-template-columns:0.05fr 0.05fr 0.05fr 0.05fr 0.05fr 0.05fr;
 	grid-template-rows:50px 50px ;
 }
 .grid__item{
@@ -35,8 +35,8 @@
 .han-fu{
 	color:green;
 	position: relative;
-	left:750px;
-	top:20px;
+	left:550px;
+	bottom:150px;
 	font-size:30px;
 
 }
@@ -48,9 +48,25 @@
 
 .point{
 	position: relative;
-	bottom:200px;
-	left:750px;
+	bottom:250px;
+	left:550px;
 	color:#FF6633;
 	font-size:35px;
+}
 
+.title{
+	position: relative;
+	bottom:100px;
+	left:50px;
+}
+
+.submit{
+	position: relative;
+	width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #68779a;
+    background: #66CC66;
+    cursor: pointer;
+    bottom:200px;
 }
