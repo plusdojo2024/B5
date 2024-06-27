@@ -12,11 +12,11 @@
 <div><img src="/B5/img/rakujan.png"></div>
 <a href="/B5/MainServlet"><button class="start">対局開始</button></a><br>
 
-<a href="/B5/RuleServlet"><button class="guide" type="button">麻雀ガイド</button></a>
+<a href="/B5/GuideServlet"><button class="guide" type="button">麻雀ガイド</button></a>
 <a href="/B5/MypageServlet"><button class="guide" type="button">マイページ</button></a>
 <a href="/B5/HistoryServlet"><button class="record" type="button">戦績</button></a><br>
 
-<a href="/B5/GuideServlet"><button class="appguide" type="button">アプリガイド	&#x1f530;</button></a>
+<a href="/B5/RuleServlet"><button class="appguide" type="button">アプリガイド	&#x1f530;</button></a>
 
 </body>
 </html>
