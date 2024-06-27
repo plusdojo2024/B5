@@ -330,7 +330,7 @@ function tehaiClick(num){
 	else if(ponFlag){//ポンポップアップが出ているときの処理
 		let element = document.getElementById(num.id+"img");
 		let tileName = element.alt;
-		let tileNum = exchangeTileName(tileName);
+		let tileNum = [exchangeTileName(tileName)];
 		if(hands.indexOf(tileNum)+1 ===hands.indexOf(tileNum,hands.indexOf(tileNum)+1)){
 			element = document.getElementById("ponTile");
 			element.src="/B5/img/ma-jan_"+tileName+".png";
@@ -1507,31 +1507,23 @@ function agari(){
 		    	let nums = [0,0,0];
 		    	for(let tmp1 of tmp){
 		    		if((tmp1[0]>=0&&tmp1[0]<=8)||(tmp1[0]>=27&&tmp1[0]<=33)){
-						if(nums[1]===1||nums[2]===1){
-							break;
-						}
 						num++;
-						nums[0]=1;
+						nums[0]+=1;
 		    		}
-		    		if((tmp1[0]>=9&&tmp1[0]<=17)||(tmp1[0]>=27&&tmp1[0]<=33)){
-						if(nums[0]===1||nums[2]===1){
-							break;
-						}
+		    		else if((tmp1[0]>=9&&tmp1[0]<=17)||(tmp1[0]>=27&&tmp1[0]<=33)){
 						num++;
-						nums[1]=1;
+						nums[1]+=1;
 		    		}
-		    		if((tmp1[0]>=18&&tmp1[0]<=26)||(tmp1[0]>=27&&tmp1[0]<=33)){
-						if(nums[0]===1||nums[1]===1){
-							break;
-						}
+		    		else if((tmp1[0]>=18&&tmp1[0]<=26)||(tmp1[0]>=27&&tmp1[0]<=33)){
 						num++;
-						nums[2]=1;
+						nums[2]+=1;
 		    		}
-		    	}
-		    	if(num === num.length){
-		    		yakus[i].push(28);
-		    		han[i]+=3;
-		    	}
+		    	}for(let j = 0;j<3;j++){
+			    	if(num === nums[j]){
+			    		yakus[i].push(28);
+			    		han[i]+=3;
+			    	}
+			    }
 		    }
 		    //リャンペイコー
 		    if(tmp.length===3){
@@ -1544,31 +1536,24 @@ function agari(){
 		    	let nums = [0,0,0];
 		    	for(let tmp1 of tmp){
 		    		if((tmp1[0]>=0&&tmp1[0]<=8)){
-						if(nums[1]===1||nums[2]===1){
-							break;
-						}
 						num++;
-						nums[0]=1;
+						nums[0]+=1;
 		    		}
-		    		if((tmp1[0]>=9&&tmp1[0]<=17)){
-						if(nums[0]===1||nums[2]===1){
-							break;
-						}
+		    		else if((tmp1[0]>=9&&tmp1[0]<=17)){
 						num++;
-						nums[1]=1;
+						nums[1]+=1;
 		    		}
-		    		if((tmp1[0]>=18&&tmp1[0]<=26)){
-						if(nums[0]===1||nums[1]===1){
-							break;
-						}
+		    		else if((tmp1[0]>=18&&tmp1[0]<=26)){
 						num++;
-						nums[2]=1;
+						nums[2]+=1;
 		    		}
 		    	}
-		    	if(num === num.length){
-		    		yakus[i].push(31);
-		    		han[i]+=6;
-		    	}
+		    	for(let j = 0;j<3;j++){
+			    	if(num === nums[j]){
+			    		yakus[i].push(31);
+			    		han[i]+=6;
+			    	}
+			    }
 		    }
 		}
 	    //符計算
@@ -1616,7 +1601,9 @@ function agari(){
 	    			}
 	    		}
     		}
-
+			if(hu[i]%10!=0){
+				hu[i]+=(10-(hu[i]%10));
+			}
     	}
     	if(seatWind ===0){
     		if(han[i]>=13){

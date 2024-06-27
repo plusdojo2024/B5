@@ -41,9 +41,6 @@ public class ResultServlet extends HttpServlet {
 		//手配のデータを取得（handsテーブルからuser_id,hisroty_idをもとに最終的な手牌を）取得
 		//そのために「resultDAO」のfinalTehai()メソッドを実行して結果を配列orlistと受け取る
 
-		//session.getAttribute("",);
-		int[] tmp = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 }; //テスト用で記載(本来はなし)
-		session.setAttribute("hands", tmp);//テスト用で記載(本来はなし)
 
 		int[] hands = (int[]) session.getAttribute("hands"); //スコープから受け取っているところ
 
@@ -56,8 +53,6 @@ public class ResultServlet extends HttpServlet {
 
 		request.setAttribute("hand", HDP);
 
-		int aa = 1; //テスト用で記載(本来はなし)
-		session.setAttribute("lastHands", aa);//テスト用で記載(本来はなし)
 
 
 		//最後に引いた牌を取得（配列じゃないからfor文はいらない）
@@ -69,8 +64,6 @@ public class ResultServlet extends HttpServlet {
 			lh = tiles.get(0).getTileName();
 		request.setAttribute("lastHand", lh);
 
-		int bb = 0; //テスト用で記載(本来はなし)
-		session.setAttribute("result", bb);//テスト用で記載(本来はなし)
 
 		//ツモ、ロンを取得
 		int result = (int) session.getAttribute("result");
@@ -82,8 +75,6 @@ public class ResultServlet extends HttpServlet {
 		}
 		request.setAttribute("result", rs);
 
-		int[] cc = { 1, 2, 3, 4, 5}; //テスト用で記載(本来はなし)
-		session.setAttribute("Doras", cc);//テスト用で記載(本来はなし)
 
 
 		//ドラを取得
@@ -97,8 +88,6 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("Doras", dr);
 
 
-		int[] dd = { 1, 2, 3, 4, 5}; //テスト用で記載(本来はなし)
-		session.setAttribute("uraDoras", dd);//テスト用で記載(本来はなし)
 
 		//裏ドラを取得
 		int[] uraDoras = (int[]) session.getAttribute("uraDoras");
@@ -111,8 +100,6 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("uraDoras", udr);
 
 
-		int[] ee  ={1,2,4};//テスト用で記載(本来はなし)
-		session.setAttribute("yakus", ee);//テスト用で記載(本来はなし)
 
 		//役を取得
 		int[] yakus = (int[]) session.getAttribute("yakus");
@@ -137,16 +124,12 @@ public class ResultServlet extends HttpServlet {
 //		request.setAttribute("yakus", yk);
 
 
-		int ff = 1; //テスト用で記載(本来はなし)
-		session.setAttribute("han", ff);//テスト用で記載(本来はなし)
 
 		//役の翻を取得
 		int han = (int) session.getAttribute("han");
 
 		request.setAttribute("han", han);
 
-		int gg =2; //テスト用で記載(本来はなし)
-		session.setAttribute("fu", gg);//テスト用で記載(本来はなし)
 
 
 		//役の付を取得
@@ -154,8 +137,6 @@ public class ResultServlet extends HttpServlet {
 
 		request.setAttribute("fu", fu);
 
-		int hh = 3; //テスト用で記載(本来はなし)
-		session.setAttribute("point", hh);//テスト用で記載(本来はなし)
 
 		//点数の種類を取得
 		int point = (int) session.getAttribute("point");
@@ -163,8 +144,6 @@ public class ResultServlet extends HttpServlet {
 		request.setAttribute("point",point);
 
 
-		int ii = 4;//テスト用で記載(本来はなし)
-		session.setAttribute("title", ii);//テスト用で記載(本来はなし)
 
 		//点数を取得
 		int title =(int) session.getAttribute("title");
