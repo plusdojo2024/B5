@@ -19,6 +19,7 @@
   <br>
   <input class="new" type="submit" name="submit" value="ログイン"><br>
   <span id="error_message"></span><br>
+  <p>&nbsp;</p>
   <a href="/B5/SignupServlet" class="entry">新規登録</a>
 </form>
 
